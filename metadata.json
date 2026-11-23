@@ -1,0 +1,6 @@
+{
+  "name": "Juyeon Baek — Personal Archive",
+  "description": "Personal portfolio and digital humanities archive of Juyeon Baek (백주연), English Language and Literature at Korea University.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

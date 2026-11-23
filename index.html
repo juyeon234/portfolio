@@ -1,0 +1,3394 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juyeon Baek — Personal Archive</title>
+  <meta name="description" content="Personal portfolio and digital humanities archive of Juyeon Baek (백주연), English Language and Literature at Korea University." />
+  <meta property="og:title" content="Juyeon Baek — Personal Archive" />
+  <meta property="og:description" content="Personal portfolio and digital humanities archive of Juyeon Baek (백주연), English Language and Literature at Korea University." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Editorial Typography (with graceful system fallbacks for offline viewing) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================================
+       1. DESIGN TOKENS & PALETTE
+       Edit these CSS custom properties to adjust colors, typography, or spacing.
+       ========================================================================= */
+    :root {
+      /* Verified Portfolio Palette */
+      --rose-dusty: #DDA0A0;
+      --blush-soft: #E9BFC0;
+      --burgundy: #895B60;
+      --burgundy-deep: #6D4449;
+      --ivory: #FFF9F5;
+      --paper: #FFFCF9;
+      --brown-deep: #5D4547;
+      --ink-strong: #3E2A2C;
+      --ink-muted: #6C5254;
+      --beige-soft: #E8DAD3;
+      --beige-tint: #F5ECE7;
+
+      /* Borders & Shadows */
+      --line-hair: rgba(137, 91, 96, 0.20);
+      --line-strong: rgba(137, 91, 96, 0.42);
+      --shadow-soft: 0 12px 32px -12px rgba(93, 69, 71, 0.14);
+      --shadow-card: 0 4px 18px -6px rgba(93, 69, 71, 0.10);
+      --shadow-modal: 0 28px 64px -16px rgba(62, 42, 44, 0.30);
+
+      /* Typography */
+      --font-serif: "Playfair Display", "Noto Serif KR", Georgia, "Times New Roman", serif;
+      --font-sans: "Plus Jakarta Sans", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+      /* Radii & Layout */
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+      --container-max: 1240px;
+      --header-height: 68px;
+    }
+
+    /* =========================================================================
+       2. RESET & BASE STYLES
+       ========================================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 20px);
+      background-color: var(--ivory);
+      color: var(--ink-strong);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--ivory);
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(233, 191, 192, 0.24) 0%, transparent 42%),
+        radial-gradient(circle at 88% 24%, rgba(221, 160, 160, 0.16) 0%, transparent 38%);
+      min-height: 100vh;
+      line-height: 1.68;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 2px;
+    }
+
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: clamp(18px, 3.6vw, 44px);
+    }
+
+    /* =========================================================================
+       3. STICKY HEADER (3-ZONE EDITORIAL BAR)
+       ========================================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: var(--header-height);
+      background: rgba(255, 249, 245, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line-hair);
+    }
+
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ink-strong);
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .brand-link:hover {
+      color: var(--burgundy);
+    }
+
+    .brand-ornament {
+      width: 20px;
+      height: 20px;
+      color: var(--burgundy);
+      flex-shrink: 0;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 3vw, 34px);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      padding-block: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1.5px;
+      background-color: var(--burgundy);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.24s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.is-active {
+      color: var(--burgundy-deep);
+    }
+
+    .nav-link.is-active::after,
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink-strong);
+    }
+
+    .mobile-drawer {
+      display: none;
+      border-bottom: 1px solid var(--line-hair);
+      background: var(--ivory);
+      padding: 10px 20px 16px;
+    }
+
+    .mobile-drawer.is-open {
+      display: block;
+    }
+
+    .mobile-drawer-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-drawer-list a {
+      display: block;
+      padding: 10px 8px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brown-deep);
+      border-bottom: 1px solid rgba(137, 91, 96, 0.10);
+    }
+
+    .mobile-drawer-list a.is-active {
+      color: var(--burgundy-deep);
+    }
+
+    /* =========================================================================
+       4. SHARED EDITORIAL SECTION STRUCTURE & DECORATIVE SEPARATORS
+       ========================================================================= */
+    .archive-section {
+      padding-block: clamp(48px, 6vw, 84px);
+    }
+
+    .archive-section--blush {
+      background: linear-gradient(180deg, rgba(233, 191, 192, 0.28) 0%, rgba(232, 218, 211, 0.34) 100%);
+      border-top: 1px solid var(--line-hair);
+      border-bottom: 1px solid var(--line-hair);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line-hair);
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      font-weight: 600;
+      line-height: 1.18;
+      letter-spacing: -0.015em;
+      color: var(--ink-strong);
+      text-wrap: balance;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      max-width: 48ch;
+      font-size: 0.94rem;
+      color: var(--ink-muted);
+    }
+
+    .editorial-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-block: 36px;
+      color: var(--burgundy);
+    }
+
+    .editorial-divider::before,
+    .editorial-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+    }
+
+    /* =========================================================================
+       5. SECTION 1 — ABOUT ME (HERO, EDITORIAL FRAME, PROFILE CARDS, CONTACT)
+       ========================================================================= */
+    .hero-frame {
+      background: var(--paper);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(24px, 4vw, 48px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(260px, 0.85fr);
+      gap: clamp(28px, 4.5vw, 56px);
+      align-items: center;
+    }
+
+    .hero-meta-line {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin: 0 0 14px;
+    }
+
+    .hero-name {
+      margin: 0 0 10px;
+      font-family: var(--font-serif);
+      font-size: clamp(2.45rem, 5.2vw, 4rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--ink-strong);
+      text-wrap: balance;
+    }
+
+    .hero-name-kr {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-weight: 500;
+      color: var(--burgundy);
+      margin-left: 10px;
+      vertical-align: baseline;
+    }
+
+    .hero-affiliation {
+      margin: 0 0 20px;
+      font-size: 1.02rem;
+      font-weight: 500;
+      color: var(--brown-deep);
+    }
+
+    .hero-motto {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 20px;
+      padding: 12px 18px;
+      background: var(--beige-tint);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-md);
+      width: fit-content;
+    }
+
+    .hero-motto-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+    }
+
+    .hero-motto-text {
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--ink-strong);
+    }
+
+    .hero-bio {
+      margin: 0 0 28px;
+      max-width: 60ch;
+      font-size: 0.98rem;
+      line-height: 1.82;
+      color: var(--brown-deep);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--burgundy);
+      background-color: var(--burgundy);
+      color: var(--ivory);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--burgundy-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px -8px rgba(109, 68, 73, 0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background-color: var(--ivory);
+      color: var(--ink-strong);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--beige-tint);
+      border-color: var(--burgundy);
+      transform: translateY(-1px);
+    }
+
+    /* Editorial Profile Visual Plate (IZ*ONE archival poster motif, 100% inline SVG) */
+    .hero-visual {
+      background: linear-gradient(145deg, var(--blush-soft) 0%, #DFB0B2 100%);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 1px solid rgba(137, 91, 96, 0.26);
+      box-shadow: var(--shadow-card);
+    }
+
+    .archive-plate {
+      background: var(--ivory);
+      border: 1px solid var(--line-strong);
+      border-radius: 15px;
+      padding: 18px;
+      position: relative;
+    }
+
+    .archive-plate-inner {
+      border: 1px solid rgba(137, 91, 96, 0.25);
+      border-radius: 10px;
+      padding: 20px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(233, 191, 192, 0.24) 0%, transparent 62%),
+        var(--paper);
+    }
+
+    .archive-plate-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 10px;
+    }
+
+    .archive-emblem-svg {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      margin-block: 4px 10px;
+    }
+
+    .archive-plate-caption {
+      font-family: var(--font-serif);
+      font-size: 0.96rem;
+      font-style: italic;
+      color: var(--ink-strong);
+      margin: 4px 0 2px;
+    }
+
+    .archive-plate-sub {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+
+    /* About Me Detail Cards */
+    .profile-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .profile-card {
+      background: var(--paper);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-md);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--burgundy);
+    }
+
+    .profile-card--accent {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+      color: var(--ivory);
+    }
+
+    .profile-card-index {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+    }
+
+    .profile-card--accent .profile-card-index,
+    .profile-card--accent .profile-card-sub {
+      color: rgba(255, 249, 245, 0.84);
+    }
+
+    .profile-card-value {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-weight: 600;
+      line-height: 1.32;
+      color: var(--ink-strong);
+    }
+
+    .profile-card--accent .profile-card-value {
+      color: var(--ivory);
+    }
+
+    .profile-card-sub {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    /* Contact Card */
+    .contact-strip {
+      margin-top: 24px;
+      background: linear-gradient(120deg, rgba(233, 191, 192, 0.34) 0%, rgba(232, 218, 211, 0.45) 100%);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .contact-info-title {
+      margin: 0 0 4px;
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--ink-strong);
+    }
+
+    .contact-info-note {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--brown-deep);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      background: var(--paper);
+      border: 1px solid var(--line-strong);
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--ink-strong);
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .email-link:hover {
+      border-color: var(--burgundy);
+      background: var(--ivory);
+    }
+
+    .copy-btn {
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--burgundy);
+      background: var(--burgundy);
+      color: var(--ivory);
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--burgundy-deep);
+    }
+
+    /* =========================================================================
+       6. SECTION 2 — PROJECTS
+       ========================================================================= */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--paper);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+    }
+
+    .project-card-body {
+      padding: clamp(24px, 3.4vw, 38px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .project-meta-line {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin: 0 0 10px;
+    }
+
+    .project-title {
+      margin: 0 0 8px;
+      font-family: var(--font-serif);
+      font-size: clamp(1.45rem, 2.5vw, 1.95rem);
+      font-weight: 600;
+      line-height: 1.24;
+      color: var(--ink-strong);
+      text-wrap: balance;
+    }
+
+    .project-subtitle-kr {
+      margin: 0 0 16px;
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--brown-deep);
+    }
+
+    .project-summary {
+      margin: 0 0 18px;
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--brown-deep);
+    }
+
+    .project-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: var(--beige-tint);
+      border: 1px solid var(--line-hair);
+    }
+
+    .project-fact-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 3px;
+    }
+
+    .project-fact-value {
+      font-size: 0.87rem;
+      font-weight: 500;
+      color: var(--ink-strong);
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .project-card-visual {
+      background: linear-gradient(155deg, rgba(233, 191, 192, 0.42) 0%, rgba(221, 160, 160, 0.24) 100%);
+      border-left: 1px solid var(--line-hair);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .mini-graph-frame {
+      background: var(--ivory);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini-graph-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--burgundy);
+      border-bottom: 1px solid var(--line-hair);
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    .deliverables-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .deliverables-list li {
+      font-size: 0.84rem;
+      color: var(--ink-strong);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .deliverables-list li::before {
+      content: "✦";
+      font-size: 0.7rem;
+      color: var(--burgundy);
+    }
+
+    /* Project Detail Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(62, 42, 44, 0.54);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(12px, 3vw, 28px);
+    }
+
+    .modal-backdrop.is-open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      width: 100%;
+      max-width: 920px;
+      max-height: 90vh;
+      background: var(--ivory);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-modal);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-head {
+      padding: 20px 26px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line-hair);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modal-title {
+      margin: 4px 0 0;
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      font-weight: 600;
+      color: var(--ink-strong);
+    }
+
+    .modal-close {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--ivory);
+      color: var(--ink-strong);
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--burgundy);
+      color: var(--ivory);
+      border-color: var(--burgundy);
+    }
+
+    .modal-body {
+      padding: 24px 26px 30px;
+      overflow-y: auto;
+      display: grid;
+      gap: 24px;
+    }
+
+    .modal-block {
+      background: var(--paper);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .modal-block-title {
+      margin: 0 0 12px;
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--burgundy-deep);
+      border-bottom: 1px solid var(--line-hair);
+      padding-bottom: 8px;
+    }
+
+    .schema-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    .schema-table th,
+    .schema-table td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(137, 91, 96, 0.14);
+      vertical-align: top;
+    }
+
+    .schema-table th {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--burgundy);
+    }
+
+    .q-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .q-item {
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--beige-tint);
+      border: 1px solid var(--line-hair);
+    }
+
+    .q-item-head {
+      font-weight: 600;
+      color: var(--ink-strong);
+      margin-bottom: 6px;
+    }
+
+    .q-item-note {
+      margin: 0;
+      font-size: 0.87rem;
+      color: var(--brown-deep);
+      line-height: 1.65;
+    }
+
+    /* =========================================================================
+       7. SECTION 3 — DATA EXPLORER (NEO4J INTERACTIVE KNOWLEDGE GRAPH)
+       ========================================================================= */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .stat-tile {
+      background: var(--paper);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-md);
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .stat-tile--highlight {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+      color: var(--ivory);
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.69rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .stat-tile--highlight .stat-label {
+      color: rgba(255, 249, 245, 0.85);
+    }
+
+    .stat-value {
+      font-family: var(--font-serif);
+      font-size: 1.48rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink-strong);
+    }
+
+    .stat-tile--highlight .stat-value {
+      color: var(--ivory);
+    }
+
+    /* Explorer Controls Bar */
+    .explorer-controls {
+      background: var(--paper);
+      border: 1px solid var(--line-hair);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-card);
+      display: grid;
+      gap: 14px;
+    }
+
+    .controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .control-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-right: 4px;
+    }
+
+    .search-box-wrap {
+      position: relative;
+      min-width: 240px;
+      flex: 1 1 260px;
+      max-width: 340px;
+    }
+
+    .search-input,
+    .member-select {
+      width: 100%;
+      padding: 9px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--ivory);
+      font-size: 0.86rem;
+      color: var(--ink-strong);
+    }
+
+    .member-select {
+      width: auto;
+      min-width: 185px;
+    }
+
+    .search-results-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      z-index: 25;
+      background: var(--paper);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-soft);
+      max-height: 240px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .search-results-dropdown.is-open {
+      display: block;
+    }
+
+    .search-result-item {
+      width: 100%;
+      text-align: left;
+      padding: 8px 12px;
+      border: 0;
+      border-bottom: 1px solid rgba(137, 91, 96, 0.12);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.84rem;
+    }
+
+    .search-result-item:hover {
+      background: var(--beige-tint);
+    }
+
+    .filter-btn,
+    .preset-btn {
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--ivory);
+      color: var(--brown-deep);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.18s ease;
+    }
+
+    .filter-btn:hover,
+    .preset-btn:hover {
+      border-color: var(--burgundy);
+      background: var(--beige-tint);
+    }
+
+    .filter-btn.is-active,
+    .preset-btn.is-active {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+      color: var(--ivory);
+    }
+
+    .preset-subbar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--beige-tint);
+      border: 1px solid var(--line-hair);
+      font-size: 0.84rem;
+      color: var(--brown-deep);
+    }
+
+    .preset-subbar.is-visible {
+      display: flex;
+    }
+
+    /* Main Graph Workspace Grid */
+    .explorer-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.75fr) minmax(300px, 0.95fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .graph-stage {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .graph-toolbar {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .graph-toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      pointer-events: auto;
+      background: rgba(255, 252, 249, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 5px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-hair);
+      box-shadow: var(--shadow-card);
+    }
+
+    .tool-btn {
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--line-hair);
+      background: var(--ivory);
+      color: var(--ink-strong);
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: background-color 0.16s ease, border-color 0.16s ease;
+    }
+
+    .tool-btn:hover {
+      background: var(--beige-tint);
+      border-color: var(--burgundy);
+    }
+
+    .tool-btn.is-active {
+      background: var(--burgundy);
+      color: var(--ivory);
+      border-color: var(--burgundy);
+    }
+
+    .graph-svg {
+      width: 100%;
+      height: 600px;
+      display: block;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      background-image:
+        radial-gradient(circle, rgba(137, 91, 96, 0.13) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .graph-svg.is-panning {
+      cursor: grabbing;
+    }
+
+    .graph-legend {
+      padding: 11px 16px;
+      border-top: 1px solid var(--line-hair);
+      background: rgba(245, 236, 231, 0.55);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 18px;
+      font-size: 0.78rem;
+      color: var(--brown-deep);
+    }
+
+    .legend-items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .legend-swatch {
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* SVG Graph Node & Edge Styles */
+    .edge-path {
+      fill: none;
+      stroke: rgba(137, 91, 96, 0.34);
+      stroke-width: 1.5;
+      transition: stroke 0.2s ease, stroke-opacity 0.2s ease, stroke-width 0.2s ease;
+    }
+
+    .edge-path.is-highlighted {
+      stroke: var(--burgundy);
+      stroke-width: 2.4;
+      stroke-opacity: 1;
+    }
+
+    .edge-path.is-dimmed {
+      stroke-opacity: 0.10;
+    }
+
+    .edge-label-bg {
+      fill: rgba(255, 249, 245, 0.88);
+    }
+
+    .edge-label-text {
+      font-family: var(--font-sans);
+      font-size: 9.5px;
+      font-weight: 500;
+      fill: var(--ink-muted);
+      text-anchor: middle;
+      dominant-baseline: central;
+      pointer-events: none;
+    }
+
+    .edge-label-group.is-dimmed {
+      opacity: 0.12;
+    }
+
+    .edge-label-group.is-highlighted .edge-label-text {
+      fill: var(--burgundy-deep);
+      font-weight: 700;
+    }
+
+    .graph-node {
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .graph-node.is-dimmed {
+      opacity: 0.18;
+    }
+
+    .graph-node-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      fill: var(--ink-strong);
+      text-anchor: middle;
+      pointer-events: none;
+      paint-order: stroke;
+      stroke: var(--ivory);
+      stroke-width: 3.5px;
+      stroke-linejoin: round;
+    }
+
+    .graph-node-label--person {
+      fill: var(--ivory);
+      stroke: none;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+
+    .graph-node-ring {
+      fill: none;
+      stroke: var(--burgundy-deep);
+      stroke-width: 2.5;
+      stroke-dasharray: 4 2;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .graph-node.is-selected .graph-node-ring,
+    .graph-node:hover .graph-node-ring {
+      opacity: 1;
+    }
+
+    /* Node Inspector Panel */
+    .inspector-panel {
+      background: var(--paper);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      max-height: 650px;
+      overflow: hidden;
+    }
+
+    .inspector-head {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--line-hair);
+      background: linear-gradient(135deg, rgba(233, 191, 192, 0.30) 0%, rgba(255, 252, 249, 0.9) 100%);
+    }
+
+    .inspector-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 4px;
+    }
+
+    .inspector-title {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink-strong);
+      line-height: 1.25;
+    }
+
+    .inspector-body {
+      padding: 18px 20px;
+      overflow-y: auto;
+      display: grid;
+      gap: 18px;
+      flex: 1;
+    }
+
+    .inspector-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .inspector-kv {
+      padding: 9px 11px;
+      border-radius: var(--radius-sm);
+      background: var(--beige-tint);
+      border: 1px solid var(--line-hair);
+    }
+
+    .inspector-kv-key {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--burgundy);
+    }
+
+    .inspector-kv-val {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink-strong);
+      word-break: break-word;
+    }
+
+    .inspector-section-title {
+      margin: 0 0 10px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+    }
+
+    .rel-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .rel-item {
+      width: 100%;
+      text-align: left;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-hair);
+      background: var(--ivory);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      transition: border-color 0.16s ease, background-color 0.16s ease;
+    }
+
+    .rel-item:hover {
+      border-color: var(--burgundy);
+      background: var(--beige-tint);
+    }
+
+    .rel-item-type {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--burgundy);
+    }
+
+    .rel-item-target {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink-strong);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .rel-item-cat {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+
+    /* =========================================================================
+       8. FOOTER
+       ========================================================================= */
+    .site-footer {
+      border-top: 1px solid var(--line-hair);
+      background: var(--paper);
+      padding-block: 28px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+
+    .footer-mark {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      color: var(--ink-strong);
+    }
+
+    /* =========================================================================
+       9. RESPONSIVE BREAKPOINTS & REDUCED MOTION
+       ========================================================================= */
+    @media (max-width: 1080px) {
+      .profile-cards-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .stats-ribbon {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .explorer-workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .inspector-panel {
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-frame {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card-visual {
+        border-left: 0;
+        border-top: 1px solid var(--line-hair);
+      }
+    }
+
+    @media (max-width: 680px) {
+      :root {
+        --header-height: 60px;
+      }
+
+      .nav-list {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .profile-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stats-ribbon {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .graph-svg {
+        height: 460px;
+      }
+
+      .graph-stage {
+        min-height: 460px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================================================================
+       STICKY EDITORIAL HEADER
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#about" class="brand-link" aria-label="JUYEON'S ARCHIVE 홈으로 이동">
+        <svg class="brand-ornament" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2.5L14.4 9.6L21.5 12L14.4 14.4L12 21.5L9.6 14.4L2.5 12L9.6 9.6L12 2.5Z" stroke="currentColor" stroke-width="1.5" fill="rgba(233,191,192,0.45)" />
+          <circle cx="12" cy="12" r="2.1" fill="currentColor" />
+        </svg>
+        <span>JUYEON'S ARCHIVE</span>
+      </a>
+
+      <nav aria-label="주 메뉴">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link is-active" data-nav="about">ABOUT</a></li>
+          <li><a href="#projects" class="nav-link" data-nav="projects">PROJECTS</a></li>
+          <li><a href="#explorer" class="nav-link" data-nav="explorer">DATA EXPLORER</a></li>
+        </ul>
+      </nav>
+
+      <button
+        type="button"
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-expanded="false"
+        aria-controls="mobileDrawer"
+        aria-label="메뉴 열기"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-drawer-list">
+        <li><a href="#about" class="is-active" data-nav="about">ABOUT</a></li>
+        <li><a href="#projects" data-nav="projects">PROJECTS</a></li>
+        <li><a href="#explorer" data-nav="explorer">DATA EXPLORER</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         SECTION 1 — ABOUT ME (LANDING HERO, PROFILE CARDS, CONTACT)
+         ======================================================================= -->
+    <section id="about" class="archive-section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="hero-frame">
+          <div class="hero-copy">
+            <p class="hero-meta-line">KOREA UNIVERSITY · ENGLISH LANGUAGE &amp; LITERATURE · CLASS OF 2026</p>
+            <h1 id="about-heading" class="hero-name">
+              JUYEON BAEK<span class="hero-name-kr">백주연</span>
+            </h1>
+            <p class="hero-affiliation">고려대학교 영어영문학과 · 2026학번</p>
+
+            <div class="hero-motto">
+              <span class="hero-motto-label">Motto</span>
+              <span class="hero-motto-text">“행복하게 살자”</span>
+            </div>
+
+            <p class="hero-bio" id="heroBioText"></p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn-primary">
+                <span>PROJECTS 살펴보기</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <a href="#explorer" class="btn-secondary">
+                <span>DATA EXPLORER 열기</span>
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-visual" aria-label="아카이브 커버 일러스트">
+            <div class="archive-plate">
+              <div class="archive-plate-inner">
+                <div class="archive-plate-top">
+                  <span>ARCHIVE · 2026</span>
+                  <span>VOL. 01</span>
+                </div>
+
+                <!-- Self-contained Editorial Monogram & Knowledge Constellation Artwork -->
+                <svg class="archive-emblem-svg" viewBox="0 0 260 250" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Juyeon Baek 아카이브 모노그램">
+                  <defs>
+                    <linearGradient id="roseGrad" x1="30" y1="20" x2="230" y2="230" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#E9BFC0" stop-opacity="0.55" />
+                      <stop offset="100%" stop-color="#DDA0A0" stop-opacity="0.22" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Outer arch & framing rings -->
+                  <rect x="24" y="14" width="212" height="222" rx="106" fill="url(#roseGrad)" stroke="#895B60" stroke-width="1.2" />
+                  <rect x="34" y="24" width="192" height="202" rx="96" fill="#FFF9F5" stroke="#DDA0A0" stroke-width="1" stroke-dasharray="3 3" />
+
+                  <!-- Subtle constellation lines symbolizing Digital Humanities Knowledge Graph -->
+                  <line x1="74" y1="74" x2="130" y2="54" stroke="#DDA0A0" stroke-width="1.1" />
+                  <line x1="130" y1="54" x2="186" y2="78" stroke="#DDA0A0" stroke-width="1.1" />
+                  <line x1="74" y1="74" x2="64" y2="148" stroke="#DDA0A0" stroke-width="1.1" />
+                  <line x1="186" y1="78" x2="196" y2="152" stroke="#DDA0A0" stroke-width="1.1" />
+                  <line x1="64" y1="148" x2="130" y2="192" stroke="#DDA0A0" stroke-width="1.1" />
+                  <line x1="196" y1="152" x2="130" y2="192" stroke="#DDA0A0" stroke-width="1.1" />
+
+                  <!-- Constellation nodes -->
+                  <circle cx="130" cy="54" r="4.5" fill="#895B60" />
+                  <circle cx="74" cy="74" r="3.5" fill="#DDA0A0" stroke="#895B60" stroke-width="1" />
+                  <circle cx="186" cy="78" r="3.5" fill="#DDA0A0" stroke="#895B60" stroke-width="1" />
+                  <circle cx="64" cy="148" r="3.5" fill="#E9BFC0" stroke="#895B60" stroke-width="1" />
+                  <circle cx="196" cy="152" r="3.5" fill="#E9BFC0" stroke="#895B60" stroke-width="1" />
+                  <circle cx="130" cy="192" r="4.5" fill="#895B60" />
+
+                  <!-- Center floral rosette & serif monogram -->
+                  <circle cx="130" cy="122" r="42" fill="#E9BFC0" fill-opacity="0.34" stroke="#895B60" stroke-width="1.2" />
+                  <path d="M130 74L133.5 84.5L144 88L133.5 91.5L130 102L126.5 91.5L116 88L126.5 84.5L130 74Z" fill="#895B60" fill-opacity="0.82" />
+                  <text x="130" y="132" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="34" font-weight="600" letter-spacing="2" fill="#3E2A2C">JB</text>
+                  <text x="130" y="152" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="2.2" fill="#895B60">KU · ELL · DH</text>
+                </svg>
+
+                <p class="archive-plate-caption">Education &amp; Digital Humanities</p>
+                <p class="archive-plate-sub">Personal Academic Archive</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Profile Information Cards -->
+        <div class="profile-cards-grid" id="profileCardsGrid" aria-label="기본 프로필 정보"></div>
+
+        <!-- Contact Area -->
+        <div class="contact-strip" id="contact">
+          <div>
+            <h2 class="contact-info-title">Contact</h2>
+            <p class="contact-info-note">학업·프로젝트 및 디지털 인문학 관련 연락은 이메일로 부탁드립니다.</p>
+          </div>
+          <div class="contact-actions" id="contactActions">
+            <a href="mailto:07qorwndus@naver.com" class="email-link" id="emailMailtoLink">
+              <span aria-hidden="true">✉</span>
+              <span id="emailDisplayText">07qorwndus@naver.com</span>
+            </a>
+            <button type="button" class="copy-btn" id="copyEmailBtn">이메일 복사</button>
+            <!--
+              ==================================================================
+              FUTURE CONTACT LINKS:
+              추후 LinkedIn, GitHub 등 외부 링크를 추가하려면 아래 형식을 참고하세요.
+              <a href="https://..." target="_blank" rel="noopener noreferrer" class="email-link">LinkedIn</a>
+              ==================================================================
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2 — PROJECTS
+         ======================================================================= -->
+    <section id="projects" class="archive-section archive-section--blush" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">SECTION 02 · ACADEMIC &amp; ARCHIVAL WORKS</p>
+            <h2 id="projects-heading" class="section-title">Projects</h2>
+          </div>
+          <p class="section-subtitle">
+            인문학적 질문과 데이터 구조화를 연결한 학술 프로젝트 기록입니다. 카드를 눌러 배경, 데이터 모델 및 핵심 질의를 확인할 수 있습니다.
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3 — DATA EXPLORER (INTERACTIVE NEO4J KNOWLEDGE GRAPH)
+         ======================================================================= -->
+    <section id="explorer" class="archive-section" aria-labelledby="explorer-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-kicker">SECTION 03 · INTERACTIVE NEO4J GRAPH</p>
+            <h2 id="explorer-heading" class="section-title">Data Explorer</h2>
+          </div>
+          <p class="section-subtitle">
+            구축한 Neo4j 지식그래프 데이터를 브라우저에서 직접 탐색합니다. 노드를 드래그하거나 클릭하여 멤버·소속사·그룹·유닛·해체 후 활동의 연결 관계를 확인해 보세요.
+          </p>
+        </div>
+
+        <!-- Dynamically Computed Dataset Statistics -->
+        <div class="stats-ribbon" id="statsRibbon" aria-label="데이터셋 통계"></div>
+
+        <!-- Search, Filters, Member Highlighter & Research Presets -->
+        <div class="explorer-controls" aria-label="그래프 탐색 컨트롤">
+          <div class="controls-row">
+            <div class="control-group" style="flex: 1 1 300px;">
+              <span class="control-label">Search</span>
+              <div class="search-box-wrap">
+                <input
+                  type="search"
+                  id="graphSearchInput"
+                  class="search-input"
+                  placeholder="노드 이름 또는 ID 검색 (예: 권은비, C04, IVE, U02)"
+                  aria-label="노드 이름 또는 ID 검색"
+                  autocomplete="off"
+                />
+                <div class="search-results-dropdown" id="searchResultsDropdown" role="listbox" aria-label="검색 결과"></div>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="memberSelect" class="control-label">Member Focus</label>
+              <select id="memberSelect" class="member-select" aria-label="멤버 하이라이트 선택">
+                <option value="">전체 멤버 (강조 없음)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="controls-row">
+            <div class="control-group" id="categoryFilterGroup" role="group" aria-label="노드 라벨 필터">
+              <span class="control-label">Categories</span>
+            </div>
+          </div>
+
+          <div class="controls-row">
+            <div class="control-group" id="presetGroup" role="group" aria-label="연구 질문 프리셋">
+              <span class="control-label">Research Presets</span>
+              <button type="button" class="preset-btn is-active" data-preset="all">전체 네트워크</button>
+              <button type="button" class="preset-btn" data-preset="career">1. 해체 후 진로 및 소속사 경로</button>
+              <button type="button" class="preset-btn" data-preset="units">2. 프로듀스48 유닛 연결망</button>
+              <button type="button" class="preset-btn" data-preset="activities">3. 해체 후 공동 활동</button>
+            </div>
+          </div>
+
+          <div class="preset-subbar" id="presetSubbar">
+            <span id="presetDescription"></span>
+            <div class="control-group" id="activityModeGroup" style="display: none;">
+              <button type="button" class="tool-btn is-active" data-activity-mode="shared">공동 활동만 (≥ 2명)</button>
+              <button type="button" class="tool-btn" data-activity-mode="all">전체 해체 후 활동</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graph Canvas + Inspector -->
+        <div class="explorer-workspace">
+          <div class="graph-stage">
+            <div class="graph-toolbar">
+              <div class="graph-toolbar-group">
+                <button type="button" class="tool-btn" id="zoomInBtn" title="확대" aria-label="확대">+ 확대</button>
+                <button type="button" class="tool-btn" id="zoomOutBtn" title="축소" aria-label="축소">− 축소</button>
+                <button type="button" class="tool-btn" id="resetViewBtn" title="화면 초기화">화면 초기화</button>
+                <button type="button" class="tool-btn" id="relayoutBtn" title="배치 재정렬">배치 재정렬</button>
+              </div>
+              <div class="graph-toolbar-group">
+                <button type="button" class="tool-btn is-active" id="toggleEdgeLabelsBtn" aria-pressed="true">관계명 표시</button>
+              </div>
+            </div>
+
+            <svg id="graphSvg" class="graph-svg" viewBox="0 0 880 600" role="img" aria-label="IZ*ONE 활동 네트워크 지식그래프 시각화">
+              <defs>
+                <marker id="arrowDefault" viewBox="0 -4 8 8" refX="7" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0,-3.5L7,0L0,3.5Z" fill="rgba(137,91,96,0.55)" />
+                </marker>
+                <marker id="arrowActive" viewBox="0 -4 8 8" refX="7" refY="0" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                  <path d="M0,-3.5L7,0L0,3.5Z" fill="#6D4449" />
+                </marker>
+              </defs>
+              <g id="graphViewport">
+                <g id="edgesLayer"></g>
+                <g id="edgeLabelsLayer"></g>
+                <g id="nodesLayer"></g>
+              </g>
+            </svg>
+
+            <div class="graph-legend">
+              <div class="legend-items" aria-label="노드 범례">
+                <span class="legend-item">
+                  <svg class="legend-swatch" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="#895B60" /></svg>
+                  인물
+                </span>
+                <span class="legend-item">
+                  <svg class="legend-swatch" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3" fill="#E9BFC0" stroke="#5D4547" stroke-width="1.3" /></svg>
+                  소속사
+                </span>
+                <span class="legend-item">
+                  <svg class="legend-swatch" viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 14.5,5 12,13.5 4,13.5 1.5,5" fill="#DDA0A0" stroke="#6D4449" stroke-width="1.3" /></svg>
+                  아이돌그룹
+                </span>
+                <span class="legend-item">
+                  <svg class="legend-swatch" viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,1 15,8 8,15 1,8" fill="#E8DAD3" stroke="#895B60" stroke-width="1.3" /></svg>
+                  유닛
+                </span>
+                <span class="legend-item">
+                  <svg class="legend-swatch" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="5" fill="#FFF9F5" stroke="#895B60" stroke-width="1.5" /></svg>
+                  해체후활동
+                </span>
+              </div>
+              <span id="visibleCountIndicator" class="tabular"></span>
+            </div>
+          </div>
+
+          <!-- Node Detail Inspector -->
+          <aside class="inspector-panel" id="inspectorPanel" aria-live="polite" aria-label="선택된 노드 정보">
+            <div class="inspector-head">
+              <div class="inspector-kicker" id="inspectorCategory">NODE INSPECTOR</div>
+              <h3 class="inspector-title" id="inspectorName">노드를 선택해 주세요</h3>
+            </div>
+            <div class="inspector-body" id="inspectorBody"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       PROJECT DETAIL MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="projectModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <div>
+          <p class="section-kicker" id="modalProjectKicker" style="margin-bottom: 2px;"></p>
+          <h2 class="modal-title" id="modalProjectTitle"></h2>
+        </div>
+        <button type="button" class="modal-close" id="modalCloseBtn" aria-label="창 닫기">✕</button>
+      </div>
+      <div class="modal-body" id="modalProjectBody"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="footer-mark">JUYEON BAEK · 백주연</span>
+        <span> — Korea University, English Language &amp; Literature (2026)</span>
+      </div>
+      <div>
+        <span>Personal Academic &amp; Digital Humanities Archive · </span>
+        <a href="mailto:07qorwndus@naver.com" style="text-decoration: underline;">07qorwndus@naver.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       PORTFOLIO DATA & GRAPH ENGINE (PLAIN VANILLA JAVASCRIPT)
+       ========================================================================= -->
+  <script>
+    (function () {
+      "use strict";
+
+      /* =======================================================================
+         SECTION A — PERSONAL PROFILE CONFIG (EDIT HERE TO UPDATE PROFILE)
+         ======================================================================= */
+      const PROFILE_CONFIG = {
+        nameKo: "백주연",
+        nameEn: "Juyeon Baek",
+        university: "Korea University",
+        universityKo: "고려대학교",
+        major: "English Language and Literature",
+        majorKo: "영어영문학과",
+        admissionYear: "2026",
+        interests: ["Education", "Digital Humanities"],
+        interestsKo: "교육 · 디지털인문학",
+        motto: "행복하게 살자",
+        email: "07qorwndus@naver.com",
+        bioKo:
+          "안녕하세요. 고려대학교 영어영문학과 26학번 백주연입니다. 언어와 문학의 맥락을 깊이 있게 읽는 인문학적 탐구를 바탕으로, 교육(Education)과 디지털인문학(Digital Humanities) 분야에 관심을 두고 배움과 연구의 기록을 차곡차곡 쌓아가고 있습니다. 복잡한 자료를 구조화해 관계망으로 시각화하고, 그 속에서 새로운 의미를 발견하는 과정을 소중히 여깁니다.",
+        cards: [
+          { index: "01 · NAME", value: "백주연 (Juyeon Baek)", sub: "Personal Archive" },
+          { index: "02 · UNIVERSITY", value: "Korea University", sub: "고려대학교" },
+          { index: "03 · MAJOR", value: "English Language & Literature", sub: "영어영문학과" },
+          { index: "04 · ADMISSION", value: "2026", sub: "2026학번" },
+          { index: "05 · INTERESTS", value: "Education & Digital Humanities", sub: "교육 · 디지털인문학", accent: true }
+        ]
+      };
+
+      /* =======================================================================
+         SECTION B — PROJECTS DATA (APPEND NEW OBJECTS HERE TO ADD PROJECTS)
+         ======================================================================= */
+      const PROJECTS_DATA = [
+        {
+          id: "izone-knowledge-graph",
+          category: "Digital Humanities / Knowledge Graph / Neo4j",
+          course: "디지털인문학 응용 (COLA173-18) · 2026학년도 2학기 · C팀",
+          period: "2026.10 — 2026.12 (10주 프로젝트)",
+          title: "IZ*ONE Activity Network — A Knowledge Graph Database Project",
+          titleKo: "프로젝트 그룹 IZ*ONE(아이즈원)의 데뷔 이전부터 해체 후까지의 멤버들의 활동 네트워크",
+          team: "백주연 (영어영문학과) · 유사라 (국어국문학과) · 봉문예 (영어영문학과) · 심예린 (불어불문학과)",
+          myRole: "자료 심층 조사 (프로듀스48 유닛 · 해체 후 활동 데이터 수집 및 검증)",
+          source: "나무위키(namu.wiki/w/IZ*ONE) 기반 교차 검증",
+          technologies: ["Neo4j", "Cypher Query Language", "Knowledge Graph Modeling"],
+          deliverables: [
+            "Neo4j 그래프 데이터베이스 (노드 42개 · 관계 48개 내보내기)",
+            "Cypher 질의 기반 네트워크 시각화 결과",
+            "기획서 및 최종 결과 보고서"
+          ],
+          summary:
+            "프로젝트 그룹 아이즈원(IZ*ONE) 멤버 12인의 데뷔 이전 활동(프로듀스48 경연 유닛 및 기존 그룹)부터 해체 이후의 소속사 이동, 그룹 재데뷔, 솔로·예능·라디오·화보 활동까지의 관계망을 Neo4j 지식그래프로 구축·분석한 팀 프로젝트입니다.",
+          background:
+            "프로젝트 그룹 아이즈원(IZ*ONE)은 활동 종료 이후 멤버들이 솔로 가수, 아이돌 그룹(재데뷔), 배우, 예능 등 다양한 분야로 활동을 이어 갔습니다. 이에 따라 멤버들의 데뷔 전후 활동 이력과 소속 관계가 어떻게 변화하고 분화되었는지를 하나의 지식그래프 네트워크로 체계화하고자 했습니다.",
+          objective:
+            "아이즈원 멤버 12명의 데뷔 이전과 해체 이후 활동 이력 및 소속사·그룹 간 관계를 지식그래프로 구축하여, 멤버별 진로 분화 양상과 해체 이후에도 이어지는 협업·접점 관계망을 시각적으로 분석하는 것을 목표로 했습니다.",
+          dataModelClasses: [
+            { cls: "인물", count: "12개 (C01–C12)", desc: "아이즈원(IZ*ONE)으로 활동한 멤버 12인", props: "name, id" },
+            { cls: "소속사", count: "15개 (E01–E15)", desc: "멤버 및 재데뷔·기존 그룹이 소속되거나 관리되는 연예 기획사", props: "name, id" },
+            { cls: "아이돌그룹", count: "5개 (G01–G05)", desc: "데뷔 전 활동 그룹(HKT48, AKB48) 및 해체 후 재데뷔 그룹(IVE, LE SSERAFIM, SAY MY NAME)", props: "name, id, 데뷔년도" },
+            { cls: "유닛", count: "5개 (U01–U05)", desc: "프로듀스48 경연 당시 멤버들이 참여한 유닛(귀를 기울이면 2조, 너무너무너무 1·2조, 우아하게 1조, 붐바야 2조)", props: "name, id" },
+            { cls: "해체후활동", count: "5개 (A01–A05)", desc: "해체 이후 멤버들이 출연한 예능·화보·라디오 활동", props: "name, id, 장르" }
+          ],
+          relationshipsSpec: [
+            "소속되었다 (인물 → 소속사)",
+            "재데뷔하였다 (인물 → 아이돌그룹)",
+            "활동했었다 (인물 → 아이돌그룹)",
+            "관리된다 (아이돌그룹 → 소속사)",
+            "참여하였다 (인물 → 유닛)",
+            "출연하였다 (인물 → 해체후활동)"
+          ],
+          researchQuestions: [
+            {
+              code: "Q1 · 진로 및 소속 분화",
+              question: "아이즈원 해체 이후 멤버들은 솔로, 그룹 재데뷔, 배우, 예능 등 어떤 활동 경로로 분화되었는가?",
+              finding:
+                "안유진·장원영(IVE), 미야와키 사쿠라·김채원(LE SSERAFIM), 혼다 히토미(SAY MY NAME) 등 그룹 재데뷔 경로와 함께 최예나·이채연·권은비·조유리의 소속사 합류 및 솔로/방송 활동, 강혜원·야부키 나코 등의 활동 경로를 그래프에서 추적했습니다."
+            },
+            {
+              code: "Q2 · 해체 후 접점과 협업 (질의 수정 및 정제)",
+              question: "초기 '협업 양상' 질문을 '멤버들 간 해체 이후 어떤 활동에서 접점이 나타나는가?'로 구체화하여 탐구",
+              finding:
+                "해체 이후에도 최예나·이채연('문명특급', '전효성의 꿈꾸는 라디오')과 미야와키 사쿠라·야부키 나코('ロクいち！福岡', 'クイズTHE違和感')가 서로 다른 프로그램에서 반복적으로 공동 출연하며 연결됨을 확인했습니다. 또한 공동 활동 전용 쿼리와 개별 포함 쿼리의 차이, 그리고 스프레드시트 target_id(A01/A02) 입력 오류를 점검·수정하며 데이터 검증의 중요성을 경험했습니다."
+            },
+            {
+              code: "Q3 · 프로듀스48 유닛 연결망 (질의 수정)",
+              question: "초기 '유닛 조합의 반복 패턴' 질문을 '어떤 멤버들이 같은 유닛에 참여했는가?'로 수정하여 탐색",
+              finding:
+                "데이터셋 내에서 '너무너무너무 1조'(최예나·혼다 히토미·안유진·장원영)와 '너무너무너무 2조'(이채연·권은비·미야와키 사쿠라·김민주)에 각각 4명의 멤버가 집중적으로 겹쳐 참여했으며, 나머지 멤버들은 각기 다른 단일 유닛(귀를 기울이면 2조, 우아하게 1조, 붐바야 2조)에 참여했음을 확인했습니다."
+            }
+          ]
+        }
+      ];
+
+      /* =======================================================================
+         SECTION C — EMBEDDED NEO4J DATASET (VERBATIM EXPORT: 42 NODES, 48 RELS)
+         Copied verbatim from Neo4j export without altering IDs or edges.
+         ======================================================================= */
+      const NEO4J_RAW_DATA = [
+        {"type":"node","id":"0","labels":["인물"],"properties":{"name":"최예나","id":"C04"}},
+        {"type":"node","id":"1","labels":["인물"],"properties":{"name":"이채연","id":"C05"}},
+        {"type":"node","id":"2","labels":["인물"],"properties":{"name":"권은비","id":"C01"}},
+        {"type":"node","id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},
+        {"type":"node","id":"4","labels":["인물"],"properties":{"name":"강혜원","id":"C03"}},
+        {"type":"node","id":"5","labels":["인물"],"properties":{"name":"김채원","id":"C06"}},
+        {"type":"node","id":"6","labels":["인물"],"properties":{"name":"김민주","id":"C07"}},
+        {"type":"node","id":"7","labels":["인물"],"properties":{"name":"야부키 나코","id":"C08"}},
+        {"type":"node","id":"8","labels":["인물"],"properties":{"name":"혼다 히토미","id":"C09"}},
+        {"type":"node","id":"9","labels":["인물"],"properties":{"name":"조유리","id":"C10"}},
+        {"type":"node","id":"10","labels":["인물"],"properties":{"name":"안유진","id":"C11"}},
+        {"type":"node","id":"11","labels":["인물"],"properties":{"name":"장원영","id":"C12"}},
+        {"type":"node","id":"12","labels":["소속사"],"properties":{"name":"울림 엔터테인먼트","id":"E01"}},
+        {"type":"node","id":"13","labels":["소속사"],"properties":{"name":"A.M. 엔터테인먼트","id":"E02"}},
+        {"type":"node","id":"14","labels":["소속사"],"properties":{"name":"8D 엔터테인먼트","id":"E03"}},
+        {"type":"node","id":"15","labels":["소속사"],"properties":{"name":"위에화 엔터테인먼트","id":"E04"}},
+        {"type":"node","id":"16","labels":["소속사"],"properties":{"name":"WM 엔터테인먼트","id":"E05"}},
+        {"type":"node","id":"31","labels":["소속사"],"properties":{"name":"스타쉽엔터테인먼트","id":"E06"}},
+        {"type":"node","id":"32","labels":["소속사"],"properties":{"name":"쏘스뮤직(하이브)","id":"E07"}},
+        {"type":"node","id":"33","labels":["소속사"],"properties":{"name":"iNCODE","id":"E08"}},
+        {"type":"node","id":"34","labels":["소속사"],"properties":{"name":"주식회사Mercury","id":"E09"}},
+        {"type":"node","id":"35","labels":["소속사"],"properties":{"name":"주식회사DH","id":"E10"}},
+        {"type":"node","id":"36","labels":["소속사"],"properties":{"name":"Peace 엔터테인먼트","id":"E11"}},
+        {"type":"node","id":"37","labels":["소속사"],"properties":{"name":"알비더블유","id":"E12"}},
+        {"type":"node","id":"38","labels":["소속사"],"properties":{"name":"웨이크원","id":"E13"}},
+        {"type":"node","id":"39","labels":["소속사"],"properties":{"name":"매니지먼트 숲","id":"E14"}},
+        {"type":"node","id":"40","labels":["소속사"],"properties":{"name":"TWIN PLANET","id":"E15"}},
+        {"type":"node","id":"41","labels":["아이돌그룹"],"properties":{"데뷔년도":2021,"name":"IVE","id":"G01"}},
+        {"type":"node","id":"42","labels":["아이돌그룹"],"properties":{"데뷔년도":2022,"name":"LE SSERAFIM","id":"G02"}},
+        {"type":"node","id":"43","labels":["아이돌그룹"],"properties":{"데뷔년도":2024,"name":"SAY MY NAME","id":"G03"}},
+        {"type":"node","id":"44","labels":["아이돌그룹"],"properties":{"데뷔년도":2013,"name":"HKT48","id":"G04"}},
+        {"type":"node","id":"45","labels":["아이돌그룹"],"properties":{"데뷔년도":2006,"name":"AKB48","id":"G05"}},
+        {"type":"node","id":"46","labels":["유닛"],"properties":{"name":"귀를 기울이면 2조","id":"U01"}},
+        {"type":"node","id":"47","labels":["유닛"],"properties":{"name":"너무너무너무 1조","id":"U02"}},
+        {"type":"node","id":"48","labels":["유닛"],"properties":{"name":"너무너무너무 2조","id":"U03"}},
+        {"type":"node","id":"49","labels":["유닛"],"properties":{"name":"우아하게 1조","id":"U04"}},
+        {"type":"node","id":"50","labels":["유닛"],"properties":{"name":"붐바야 2조","id":"U05"}},
+        {"type":"node","id":"51","labels":["해체후활동"],"properties":{"장르":"예능","name":"ロクいち！福岡","id":"A01"}},
+        {"type":"node","id":"52","labels":["해체후활동"],"properties":{"장르":"예능","name":"문명특급","id":"A02"}},
+        {"type":"node","id":"53","labels":["해체후활동"],"properties":{"장르":"화보","name":"INDEED 잡지 Vol.12","id":"A03"}},
+        {"type":"node","id":"54","labels":["해체후활동"],"properties":{"장르":"예능","name":"クイズTHE違和感","id":"A04"}},
+        {"type":"node","id":"55","labels":["해체후활동"],"properties":{"장르":"라디오","name":"전효성의 꿈꾸는 라디오","id":"A05"}},
+        {"type":"relationship","id":"1152930300699869184","label":"소속되었다","start":{"id":"0","labels":["인물"],"properties":{"name":"최예나","id":"C04"}},"end":{"id":"15","labels":["소속사"],"properties":{"name":"위에화 엔터테인먼트","id":"E04"}}},
+        {"type":"relationship","id":"1152932499723124736","label":"참여하였다","start":{"id":"0","labels":["인물"],"properties":{"name":"최예나","id":"C04"}},"end":{"id":"47","labels":["유닛"],"properties":{"name":"너무너무너무 1조","id":"U02"}}},
+        {"type":"relationship","id":"1152933599234752512","label":"출연하였다","start":{"id":"0","labels":["인물"],"properties":{"name":"최예나","id":"C04"}},"end":{"id":"52","labels":["해체후활동"],"properties":{"장르":"예능","name":"문명특급","id":"A02"}}},
+        {"type":"relationship","id":"1155185399048437760","label":"출연하였다","start":{"id":"0","labels":["인물"],"properties":{"name":"최예나","id":"C04"}},"end":{"id":"55","labels":["해체후활동"],"properties":{"장르":"라디오","name":"전효성의 꿈꾸는 라디오","id":"A05"}}},
+        {"type":"relationship","id":"1152930300699869185","label":"소속되었다","start":{"id":"1","labels":["인물"],"properties":{"name":"이채연","id":"C05"}},"end":{"id":"16","labels":["소속사"],"properties":{"name":"WM 엔터테인먼트","id":"E05"}}},
+        {"type":"relationship","id":"1152932499723124737","label":"참여하였다","start":{"id":"1","labels":["인물"],"properties":{"name":"이채연","id":"C05"}},"end":{"id":"48","labels":["유닛"],"properties":{"name":"너무너무너무 2조","id":"U03"}}},
+        {"type":"relationship","id":"1152933599234752513","label":"출연하였다","start":{"id":"1","labels":["인물"],"properties":{"name":"이채연","id":"C05"}},"end":{"id":"53","labels":["해체후활동"],"properties":{"장르":"화보","name":"INDEED 잡지 Vol.12","id":"A03"}}},
+        {"type":"relationship","id":"1155185399048437761","label":"출연하였다","start":{"id":"1","labels":["인물"],"properties":{"name":"이채연","id":"C05"}},"end":{"id":"55","labels":["해체후활동"],"properties":{"장르":"라디오","name":"전효성의 꿈꾸는 라디오","id":"A05"}}},
+        {"type":"relationship","id":"1152930300699869186","label":"소속되었다","start":{"id":"2","labels":["인물"],"properties":{"name":"권은비","id":"C01"}},"end":{"id":"12","labels":["소속사"],"properties":{"name":"울림 엔터테인먼트","id":"E01"}}},
+        {"type":"relationship","id":"1155182100513554434","label":"소속되었다","start":{"id":"2","labels":["인물"],"properties":{"name":"권은비","id":"C01"}},"end":{"id":"37","labels":["소속사"],"properties":{"name":"알비더블유","id":"E12"}}},
+        {"type":"relationship","id":"1152932499723124738","label":"참여하였다","start":{"id":"2","labels":["인물"],"properties":{"name":"권은비","id":"C01"}},"end":{"id":"48","labels":["유닛"],"properties":{"name":"너무너무너무 2조","id":"U03"}}},
+        {"type":"relationship","id":"1152933599234752514","label":"출연하였다","start":{"id":"2","labels":["인물"],"properties":{"name":"권은비","id":"C01"}},"end":{"id":"53","labels":["해체후활동"],"properties":{"장르":"화보","name":"INDEED 잡지 Vol.12","id":"A03"}}},
+        {"type":"relationship","id":"1152930300699869187","label":"소속되었다","start":{"id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},"end":{"id":"13","labels":["소속사"],"properties":{"name":"A.M. 엔터테인먼트","id":"E02"}}},
+        {"type":"relationship","id":"1152932499723124739","label":"참여하였다","start":{"id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},"end":{"id":"48","labels":["유닛"],"properties":{"name":"너무너무너무 2조","id":"U03"}}},
+        {"type":"relationship","id":"1152933599234752515","label":"출연하였다","start":{"id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},"end":{"id":"51","labels":["해체후활동"],"properties":{"장르":"예능","name":"ロクいち！福岡","id":"A01"}}},
+        {"type":"relationship","id":"1155185399048437763","label":"출연하였다","start":{"id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},"end":{"id":"54","labels":["해체후활동"],"properties":{"장르":"예능","name":"クイズTHE違和感","id":"A04"}}},
+        {"type":"relationship","id":"1152934698746380291","label":"재데뷔하였다","start":{"id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},"end":{"id":"42","labels":["아이돌그룹"],"properties":{"데뷔년도":2022,"name":"LE SSERAFIM","id":"G02"}}},
+        {"type":"relationship","id":"1152935798258008067","label":"활동했었다","start":{"id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},"end":{"id":"44","labels":["아이돌그룹"],"properties":{"데뷔년도":2013,"name":"HKT48","id":"G04"}}},
+        {"type":"relationship","id":"1155187598071693315","label":"활동했었다","start":{"id":"3","labels":["인물"],"properties":{"name":"미야와키 사쿠라","id":"C02"}},"end":{"id":"45","labels":["아이돌그룹"],"properties":{"데뷔년도":2006,"name":"AKB48","id":"G05"}}},
+        {"type":"relationship","id":"1152930300699869188","label":"소속되었다","start":{"id":"4","labels":["인물"],"properties":{"name":"강혜원","id":"C03"}},"end":{"id":"14","labels":["소속사"],"properties":{"name":"8D 엔터테인먼트","id":"E03"}}},
+        {"type":"relationship","id":"1157433900327239684","label":"소속되었다","start":{"id":"4","labels":["인물"],"properties":{"name":"강혜원","id":"C03"}},"end":{"id":"36","labels":["소속사"],"properties":{"name":"Peace 엔터테인먼트","id":"E11"}}},
+        {"type":"relationship","id":"1155182100513554436","label":"소속되었다","start":{"id":"4","labels":["인물"],"properties":{"name":"강혜원","id":"C03"}},"end":{"id":"38","labels":["소속사"],"properties":{"name":"웨이크원","id":"E13"}}},
+        {"type":"relationship","id":"1152932499723124740","label":"참여하였다","start":{"id":"4","labels":["인물"],"properties":{"name":"강혜원","id":"C03"}},"end":{"id":"50","labels":["유닛"],"properties":{"name":"붐바야 2조","id":"U05"}}},
+        {"type":"relationship","id":"1152932499723124741","label":"참여하였다","start":{"id":"5","labels":["인물"],"properties":{"name":"김채원","id":"C06"}},"end":{"id":"49","labels":["유닛"],"properties":{"name":"우아하게 1조","id":"U04"}}},
+        {"type":"relationship","id":"1152933599234752517","label":"출연하였다","start":{"id":"5","labels":["인물"],"properties":{"name":"김채원","id":"C06"}},"end":{"id":"54","labels":["해체후활동"],"properties":{"장르":"예능","name":"クイズTHE違和感","id":"A04"}}},
+        {"type":"relationship","id":"1152934698746380293","label":"재데뷔하였다","start":{"id":"5","labels":["인물"],"properties":{"name":"김채원","id":"C06"}},"end":{"id":"42","labels":["아이돌그룹"],"properties":{"데뷔년도":2022,"name":"LE SSERAFIM","id":"G02"}}},
+        {"type":"relationship","id":"1152932499723124742","label":"참여하였다","start":{"id":"6","labels":["인물"],"properties":{"name":"김민주","id":"C07"}},"end":{"id":"48","labels":["유닛"],"properties":{"name":"너무너무너무 2조","id":"U03"}}},
+        {"type":"relationship","id":"1152930300699869191","label":"소속되었다","start":{"id":"7","labels":["인물"],"properties":{"name":"야부키 나코","id":"C08"}},"end":{"id":"40","labels":["소속사"],"properties":{"name":"TWIN PLANET","id":"E15"}}},
+        {"type":"relationship","id":"1152932499723124743","label":"참여하였다","start":{"id":"7","labels":["인물"],"properties":{"name":"야부키 나코","id":"C08"}},"end":{"id":"46","labels":["유닛"],"properties":{"name":"귀를 기울이면 2조","id":"U01"}}},
+        {"type":"relationship","id":"1157437198862123015","label":"출연하였다","start":{"id":"7","labels":["인물"],"properties":{"name":"야부키 나코","id":"C08"}},"end":{"id":"51","labels":["해체후활동"],"properties":{"장르":"예능","name":"ロクいち！福岡","id":"A01"}}},
+        {"type":"relationship","id":"1152933599234752519","label":"출연하였다","start":{"id":"7","labels":["인물"],"properties":{"name":"야부키 나코","id":"C08"}},"end":{"id":"52","labels":["해체후활동"],"properties":{"장르":"예능","name":"문명특급","id":"A02"}}},
+        {"type":"relationship","id":"1155185399048437767","label":"출연하였다","start":{"id":"7","labels":["인물"],"properties":{"name":"야부키 나코","id":"C08"}},"end":{"id":"54","labels":["해체후활동"],"properties":{"장르":"예능","name":"クイズTHE違和感","id":"A04"}}},
+        {"type":"relationship","id":"1152935798258008071","label":"활동했었다","start":{"id":"7","labels":["인물"],"properties":{"name":"야부키 나코","id":"C08"}},"end":{"id":"44","labels":["아이돌그룹"],"properties":{"데뷔년도":2013,"name":"HKT48","id":"G04"}}},
+        {"type":"relationship","id":"1152932499723124744","label":"참여하였다","start":{"id":"8","labels":["인물"],"properties":{"name":"혼다 히토미","id":"C09"}},"end":{"id":"47","labels":["유닛"],"properties":{"name":"너무너무너무 1조","id":"U02"}}},
+        {"type":"relationship","id":"1152933599234752520","label":"출연하였다","start":{"id":"8","labels":["인물"],"properties":{"name":"혼다 히토미","id":"C09"}},"end":{"id":"54","labels":["해체후활동"],"properties":{"장르":"예능","name":"クイズTHE違和感","id":"A04"}}},
+        {"type":"relationship","id":"1152934698746380296","label":"재데뷔하였다","start":{"id":"8","labels":["인물"],"properties":{"name":"혼다 히토미","id":"C09"}},"end":{"id":"43","labels":["아이돌그룹"],"properties":{"데뷔년도":2024,"name":"SAY MY NAME","id":"G03"}}},
+        {"type":"relationship","id":"1152935798258008072","label":"활동했었다","start":{"id":"8","labels":["인물"],"properties":{"name":"혼다 히토미","id":"C09"}},"end":{"id":"45","labels":["아이돌그룹"],"properties":{"데뷔년도":2006,"name":"AKB48","id":"G05"}}},
+        {"type":"relationship","id":"1155182100513554441","label":"소속되었다","start":{"id":"9","labels":["인물"],"properties":{"name":"조유리","id":"C10"}},"end":{"id":"38","labels":["소속사"],"properties":{"name":"웨이크원","id":"E13"}}},
+        {"type":"relationship","id":"1152930300699869193","label":"소속되었다","start":{"id":"9","labels":["인물"],"properties":{"name":"조유리","id":"C10"}},"end":{"id":"39","labels":["소속사"],"properties":{"name":"매니지먼트 숲","id":"E14"}}},
+        {"type":"relationship","id":"1152932499723124746","label":"참여하였다","start":{"id":"10","labels":["인물"],"properties":{"name":"안유진","id":"C11"}},"end":{"id":"47","labels":["유닛"],"properties":{"name":"너무너무너무 1조","id":"U02"}}},
+        {"type":"relationship","id":"1152934698746380298","label":"재데뷔하였다","start":{"id":"10","labels":["인물"],"properties":{"name":"안유진","id":"C11"}},"end":{"id":"41","labels":["아이돌그룹"],"properties":{"데뷔년도":2021,"name":"IVE","id":"G01"}}},
+        {"type":"relationship","id":"1152932499723124747","label":"참여하였다","start":{"id":"11","labels":["인물"],"properties":{"name":"장원영","id":"C12"}},"end":{"id":"47","labels":["유닛"],"properties":{"name":"너무너무너무 1조","id":"U02"}}},
+        {"type":"relationship","id":"1152934698746380299","label":"재데뷔하였다","start":{"id":"11","labels":["인물"],"properties":{"name":"장원영","id":"C12"}},"end":{"id":"41","labels":["아이돌그룹"],"properties":{"데뷔년도":2021,"name":"IVE","id":"G01"}}},
+        {"type":"relationship","id":"1152931400211497001","label":"관리된다","start":{"id":"41","labels":["아이돌그룹"],"properties":{"데뷔년도":2021,"name":"IVE","id":"G01"}},"end":{"id":"31","labels":["소속사"],"properties":{"name":"스타쉽엔터테인먼트","id":"E06"}}},
+        {"type":"relationship","id":"1152931400211497002","label":"관리된다","start":{"id":"42","labels":["아이돌그룹"],"properties":{"데뷔년도":2022,"name":"LE SSERAFIM","id":"G02"}},"end":{"id":"32","labels":["소속사"],"properties":{"name":"쏘스뮤직(하이브)","id":"E07"}}},
+        {"type":"relationship","id":"1152931400211497003","label":"관리된다","start":{"id":"43","labels":["아이돌그룹"],"properties":{"데뷔년도":2024,"name":"SAY MY NAME","id":"G03"}},"end":{"id":"33","labels":["소속사"],"properties":{"name":"iNCODE","id":"E08"}}},
+        {"type":"relationship","id":"1152931400211497004","label":"관리된다","start":{"id":"44","labels":["아이돌그룹"],"properties":{"데뷔년도":2013,"name":"HKT48","id":"G04"}},"end":{"id":"34","labels":["소속사"],"properties":{"name":"주식회사Mercury","id":"E09"}}},
+        {"type":"relationship","id":"1152931400211497005","label":"관리된다","start":{"id":"45","labels":["아이돌그룹"],"properties":{"데뷔년도":2006,"name":"AKB48","id":"G05"}},"end":{"id":"35","labels":["소속사"],"properties":{"name":"주식회사DH","id":"E10"}}}
+      ];
+
+      /* =======================================================================
+         SECTION D — PROFILE & PROJECT RENDERERS
+         ======================================================================= */
+      function renderProfileSection() {
+        const bioEl = document.getElementById("heroBioText");
+        if (bioEl) bioEl.textContent = PROFILE_CONFIG.bioKo;
+
+        const grid = document.getElementById("profileCardsGrid");
+        if (grid) {
+          grid.innerHTML = PROFILE_CONFIG.cards.map(function (card) {
+            return (
+              '<article class="profile-card' + (card.accent ? " profile-card--accent" : "") + '">' +
+                '<span class="profile-card-index">' + escapeHtml(card.index) + "</span>" +
+                '<h2 class="profile-card-value">' + escapeHtml(card.value) + "</h2>" +
+                '<p class="profile-card-sub">' + escapeHtml(card.sub) + "</p>" +
+              "</article>"
+            );
+          }).join("");
+        }
+
+        const copyBtn = document.getElementById("copyEmailBtn");
+        if (copyBtn) {
+          copyBtn.addEventListener("click", function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(PROFILE_CONFIG.email).then(function () {
+                showCopyFeedback(copyBtn);
+              }).catch(function () {
+                fallbackCopy(PROFILE_CONFIG.email, copyBtn);
+              });
+            } else {
+              fallbackCopy(PROFILE_CONFIG.email, copyBtn);
+            }
+          });
+        }
+      }
+
+      function fallbackCopy(text, btn) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand("copy");
+          showCopyFeedback(btn);
+        } catch (err) {
+          btn.textContent = text;
+        }
+        document.body.removeChild(textarea);
+      }
+
+      function showCopyFeedback(btn) {
+        const original = "이메일 복사";
+        btn.textContent = "복사 완료 ✓";
+        setTimeout(function () {
+          btn.textContent = original;
+        }, 2000);
+      }
+
+      function renderProjectsSection() {
+        const grid = document.getElementById("projectsGrid");
+        if (!grid) return;
+
+        grid.innerHTML = PROJECTS_DATA.map(function (proj) {
+          return (
+            '<article class="project-card">' +
+              '<div class="project-card-body">' +
+                "<div>" +
+                  '<p class="project-meta-line">' + escapeHtml(proj.category) + " · " + escapeHtml(proj.course) + "</p>" +
+                  '<h3 class="project-title">' + escapeHtml(proj.title) + "</h3>" +
+                  '<p class="project-subtitle-kr">' + escapeHtml(proj.titleKo) + "</p>" +
+                  '<p class="project-summary">' + escapeHtml(proj.summary) + "</p>" +
+                  '<div class="project-facts">' +
+                    "<div>" +
+                      '<span class="project-fact-label">MY ROLE</span>' +
+                      '<span class="project-fact-value">' + escapeHtml(proj.myRole) + "</span>" +
+                    "</div>" +
+                    "<div>" +
+                      '<span class="project-fact-label">DATA &amp; TECH</span>' +
+                      '<span class="project-fact-value">' + escapeHtml(proj.technologies.join(" · ")) + "</span>" +
+                    "</div>" +
+                    "<div>" +
+                      '<span class="project-fact-label">TEAM MEMBERS</span>' +
+                      '<span class="project-fact-value">' + escapeHtml(proj.team) + "</span>" +
+                    "</div>" +
+                    "<div>" +
+                      '<span class="project-fact-label">TIMELINE</span>' +
+                      '<span class="project-fact-value">' + escapeHtml(proj.period) + "</span>" +
+                    "</div>" +
+                  "</div>" +
+                "</div>" +
+                '<div class="project-actions">' +
+                  '<button type="button" class="btn-primary" data-open-project="' + escapeHtml(proj.id) + '">프로젝트 상세 보기</button>' +
+                  '<a href="#explorer" class="btn-secondary" data-jump-explorer>Data Explorer에서 그래프 보기</a>' +
+                "</div>" +
+              "</div>" +
+              '<div class="project-card-visual">' +
+                '<div class="mini-graph-frame">' +
+                  '<div class="mini-graph-caption">' +
+                    "<span>ONTOLOGY SCHEMA</span>" +
+                    '<span class="tabular">5 CLASSES · 6 RELS</span>' +
+                  "</div>" +
+                  buildProjectPreviewSvg() +
+                  '<div style="margin-top: 12px;">' +
+                    '<span class="project-fact-label">DELIVERABLES</span>' +
+                    '<ul class="deliverables-list">' +
+                      proj.deliverables.map(function (d) {
+                        return "<li>" + escapeHtml(d) + "</li>";
+                      }).join("") +
+                    "</ul>" +
+                  "</div>" +
+                "</div>" +
+              "</div>" +
+            "</article>"
+          );
+        }).join("");
+
+        grid.querySelectorAll("[data-open-project]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const id = btn.getAttribute("data-open-project");
+            openProjectModal(id);
+          });
+        });
+
+        grid.querySelectorAll("[data-jump-explorer]").forEach(function (link) {
+          link.addEventListener("click", function () {
+            if (window.__resetGraphPreset) window.__resetGraphPreset();
+          });
+        });
+      }
+
+      function buildProjectPreviewSvg() {
+        return (
+          '<svg viewBox="0 0 320 185" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="지식그래프 스키마 개념도">' +
+            '<line x1="160" y1="92" x2="64" y2="38" stroke="#895B60" stroke-opacity="0.55" stroke-width="1.4" />' +
+            '<line x1="160" y1="92" x2="256" y2="38" stroke="#895B60" stroke-opacity="0.55" stroke-width="1.4" />' +
+            '<line x1="160" y1="92" x2="64" y2="148" stroke="#895B60" stroke-opacity="0.55" stroke-width="1.4" />' +
+            '<line x1="160" y1="92" x2="256" y2="148" stroke="#895B60" stroke-opacity="0.55" stroke-width="1.4" />' +
+            '<line x1="256" y1="38" x2="64" y2="38" stroke="#DDA0A0" stroke-width="1.2" stroke-dasharray="3 3" />' +
+            '<text x="108" y="56" font-size="8.5" fill="#6C5254" text-anchor="middle">소속되었다</text>' +
+            '<text x="212" y="56" font-size="8.5" fill="#6C5254" text-anchor="middle">재데뷔/활동</text>' +
+            '<text x="108" y="130" font-size="8.5" fill="#6C5254" text-anchor="middle">참여하였다</text>' +
+            '<text x="212" y="130" font-size="8.5" fill="#6C5254" text-anchor="middle">출연하였다</text>' +
+            '<text x="160" y="31" font-size="8" fill="#895B60" text-anchor="middle">관리된다</text>' +
+
+            '<rect x="26" y="21" width="76" height="32" rx="8" fill="#E9BFC0" stroke="#5D4547" stroke-width="1.2" />' +
+            '<text x="64" y="40" font-size="10.5" font-weight="600" fill="#3E2A2C" text-anchor="middle">소속사 (15)</text>' +
+
+            '<rect x="216" y="21" width="84" height="32" rx="8" fill="#DDA0A0" stroke="#6D4449" stroke-width="1.2" />' +
+            '<text x="258" y="40" font-size="10.5" font-weight="600" fill="#3E2A2C" text-anchor="middle">아이돌그룹 (5)</text>' +
+
+            '<rect x="28" y="132" width="72" height="32" rx="8" fill="#E8DAD3" stroke="#895B60" stroke-width="1.2" />' +
+            '<text x="64" y="151" font-size="10.5" font-weight="600" fill="#3E2A2C" text-anchor="middle">유닛 (5)</text>' +
+
+            '<rect x="214" y="132" width="88" height="32" rx="14" fill="#FFF9F5" stroke="#895B60" stroke-width="1.4" />' +
+            '<text x="258" y="151" font-size="10.5" font-weight="600" fill="#3E2A2C" text-anchor="middle">해체후활동 (5)</text>' +
+
+            '<circle cx="160" cy="92" r="28" fill="#895B60" stroke="#FFF9F5" stroke-width="2" />' +
+            '<text x="160" y="90" font-size="11" font-weight="700" fill="#FFF9F5" text-anchor="middle">인물</text>' +
+            '<text x="160" y="103" font-size="8.5" fill="#E9BFC0" text-anchor="middle">12 Members</text>' +
+          "</svg>"
+        );
+      }
+
+      /* Modal Logic */
+      const modalBackdrop = document.getElementById("projectModalBackdrop");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+      let lastFocusedBeforeModal = null;
+
+      function openProjectModal(projectId) {
+        const proj = PROJECTS_DATA.find(function (p) { return p.id === projectId; });
+        if (!proj || !modalBackdrop) return;
+        lastFocusedBeforeModal = document.activeElement;
+
+        document.getElementById("modalProjectKicker").textContent = proj.category + " · " + proj.course;
+        document.getElementById("modalProjectTitle").textContent = proj.title;
+
+        const body = document.getElementById("modalProjectBody");
+        body.innerHTML =
+          '<div class="modal-block">' +
+            '<h3 class="modal-block-title">1. 추진 배경 및 프로젝트 목적</h3>' +
+            '<p style="margin: 0 0 10px; color: var(--brown-deep);"><strong>추진 배경:</strong> ' + escapeHtml(proj.background) + "</p>" +
+            '<p style="margin: 0 0 10px; color: var(--brown-deep);"><strong>프로젝트 목적:</strong> ' + escapeHtml(proj.objective) + "</p>" +
+            '<p style="margin: 0; font-size: 0.88rem; color: var(--ink-muted);"><strong>출처 및 검증:</strong> ' + escapeHtml(proj.source) + " · <strong>참여 역할:</strong> " + escapeHtml(proj.myRole) + "</p>" +
+          "</div>" +
+          '<div class="modal-block">' +
+            '<h3 class="modal-block-title">2. 데이터 모델 설계 (구축된 Neo4j 스키마)</h3>' +
+            '<div style="overflow-x: auto;">' +
+              '<table class="schema-table">' +
+                "<thead><tr><th>노드 라벨</th><th>개체 수</th><th>범주화 설명</th><th>주요 속성</th></tr></thead>" +
+                "<tbody>" +
+                  proj.dataModelClasses.map(function (c) {
+                    return (
+                      "<tr>" +
+                        "<td><strong>" + escapeHtml(c.cls) + "</strong></td>" +
+                        '<td class="tabular">' + escapeHtml(c.count) + "</td>" +
+                        "<td>" + escapeHtml(c.desc) + "</td>" +
+                        '<td><code>' + escapeHtml(c.props) + "</code></td>" +
+                      "</tr>"
+                    );
+                  }).join("") +
+                "</tbody>" +
+              "</table>" +
+            "</div>" +
+            '<p style="margin: 14px 0 0; font-size: 0.86rem; color: var(--brown-deep);"><strong>관계 유형(6종):</strong> ' + escapeHtml(proj.relationshipsSpec.join(" · ")) + "</p>" +
+          "</div>" +
+          '<div class="modal-block">' +
+            '<h3 class="modal-block-title">3. 핵심 연구 질문(Q1–Q3)과 탐색 결과</h3>' +
+            '<ul class="q-list">' +
+              proj.researchQuestions.map(function (q) {
+                return (
+                  '<li class="q-item">' +
+                    '<div class="q-item-head">' + escapeHtml(q.code) + " — " + escapeHtml(q.question) + "</div>" +
+                    '<p class="q-item-note">' + escapeHtml(q.finding) + "</p>" +
+                  "</li>"
+                );
+              }).join("") +
+            "</ul>" +
+          "</div>" +
+          '<div class="modal-block">' +
+            '<h3 class="modal-block-title">4. 네트워크 구조 미리보기 및 산출물</h3>' +
+            '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; align-items: center;">' +
+              '<div style="background: var(--ivory); border: 1px solid var(--line-hair); border-radius: 12px; padding: 12px;">' +
+                buildProjectPreviewSvg() +
+              "</div>" +
+              "<div>" +
+                '<ul class="deliverables-list" style="margin-bottom: 16px;">' +
+                  proj.deliverables.map(function (d) {
+                    return "<li>" + escapeHtml(d) + "</li>";
+                  }).join("") +
+                "</ul>" +
+                '<a href="#explorer" class="btn-primary" id="modalLaunchExplorer">Data Explorer에서 직접 탐색하기 →</a>' +
+              "</div>" +
+            "</div>" +
+          "</div>";
+
+        const launchBtn = document.getElementById("modalLaunchExplorer");
+        if (launchBtn) {
+          launchBtn.addEventListener("click", function () {
+            closeProjectModal();
+          });
+        }
+
+        modalBackdrop.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        modalCloseBtn.focus();
+      }
+
+      function closeProjectModal() {
+        if (!modalBackdrop) return;
+        modalBackdrop.classList.remove("is-open");
+        document.body.style.overflow = "";
+        if (lastFocusedBeforeModal && typeof lastFocusedBeforeModal.focus === "function") {
+          lastFocusedBeforeModal.focus();
+        }
+      }
+
+      if (modalCloseBtn && modalBackdrop) {
+        modalCloseBtn.addEventListener("click", closeProjectModal);
+        modalBackdrop.addEventListener("click", function (e) {
+          if (e.target === modalBackdrop) closeProjectModal();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modalBackdrop.classList.contains("is-open")) {
+            closeProjectModal();
+          }
+        });
+      }
+
+      /* =======================================================================
+         SECTION E — NEO4J GRAPH PARSER & INTERACTIVE FORCE EXPLORER
+         ======================================================================= */
+      function initDataExplorer() {
+        const CATEGORY_ORDER = ["인물", "소속사", "아이돌그룹", "유닛", "해체후활동"];
+        const CATEGORY_META = {
+          "인물": { title: "인물 (Members)", fill: "#895B60", stroke: "#FFF9F5", text: "#FFF9F5", radius: 24 },
+          "소속사": { title: "소속사 (Agencies)", fill: "#E9BFC0", stroke: "#5D4547", text: "#3E2A2C", radius: 22 },
+          "아이돌그룹": { title: "아이돌그룹 (Groups)", fill: "#DDA0A0", stroke: "#6D4449", text: "#3E2A2C", radius: 24 },
+          "유닛": { title: "유닛 (Produce 48 Units)", fill: "#E8DAD3", stroke: "#895B60", text: "#3E2A2C", radius: 23 },
+          "해체후활동": { title: "해체후활동 (Activities)", fill: "#FFF9F5", stroke: "#895B60", text: "#3E2A2C", radius: 23 }
+        };
+
+        // 1. Parse raw Neo4j dataset dynamically
+        const nodes = [];
+        const nodeById = new Map();
+        const edges = [];
+
+        NEO4J_RAW_DATA.forEach(function (item) {
+          if (item.type === "node") {
+            const label = (item.labels && item.labels[0]) || "기타";
+            const node = {
+              id: String(item.id),
+              label: label,
+              properties: Object.assign({}, item.properties || {}),
+              name: (item.properties && item.properties.name) || ("Node " + item.id),
+              bizId: (item.properties && item.properties.id) || "",
+              degree: 0,
+              personDegree: 0,
+              x: 440,
+              y: 300,
+              vx: 0,
+              vy: 0
+            };
+            nodes.push(node);
+            nodeById.set(node.id, node);
+          } else if (item.type === "relationship") {
+            edges.push({
+              id: String(item.id),
+              label: item.label || "",
+              sourceId: String(item.start && item.start.id),
+              targetId: String(item.end && item.end.id)
+            });
+          }
+        });
+
+        // Compute degrees & handle parallel edge curve offsets
+        const pairGroups = new Map();
+        edges.forEach(function (edge) {
+          const s = nodeById.get(edge.sourceId);
+          const t = nodeById.get(edge.targetId);
+          edge.source = s;
+          edge.target = t;
+          if (s) s.degree += 1;
+          if (t) t.degree += 1;
+          if (s && t) {
+            if (s.label === "인물" && t.label === "해체후활동") t.personDegree += 1;
+            const pairKey = [s.id, t.id].sort().join("::");
+            if (!pairGroups.has(pairKey)) pairGroups.set(pairKey, []);
+            pairGroups.get(pairKey).push(edge);
+          }
+        });
+
+        pairGroups.forEach(function (group) {
+          const count = group.length;
+          group.forEach(function (edge, idx) {
+            edge.curveOffset = count === 1 ? 0 : (idx - (count - 1) / 2) * 30;
+          });
+        });
+
+        // 2. Render Dynamic Statistics Ribbon
+        const labelCounts = {};
+        CATEGORY_ORDER.forEach(function (cat) { labelCounts[cat] = 0; });
+        nodes.forEach(function (n) {
+          labelCounts[n.label] = (labelCounts[n.label] || 0) + 1;
+        });
+
+        const statsRibbon = document.getElementById("statsRibbon");
+        if (statsRibbon) {
+          const statTiles = [
+            { label: "Total Nodes", value: nodes.length, highlight: true },
+            { label: "Relationships", value: edges.length, highlight: true },
+            { label: "인물", value: labelCounts["인물"] || 0 },
+            { label: "소속사", value: labelCounts["소속사"] || 0 },
+            { label: "아이돌그룹", value: labelCounts["아이돌그룹"] || 0 },
+            { label: "유닛", value: labelCounts["유닛"] || 0 },
+            { label: "해체후활동", value: labelCounts["해체후활동"] || 0 }
+          ];
+          statsRibbon.innerHTML = statTiles.map(function (t) {
+            return (
+              '<div class="stat-tile' + (t.highlight ? " stat-tile--highlight" : "") + '">' +
+                '<span class="stat-label">' + escapeHtml(t.label) + "</span>" +
+                '<span class="stat-value tabular">' + t.value + "</span>" +
+              "</div>"
+            );
+          }).join("");
+        }
+
+        // 3. Populate Member Highlighter Select
+        const memberSelect = document.getElementById("memberSelect");
+        const memberNodes = nodes.filter(function (n) { return n.label === "인물"; })
+          .sort(function (a, b) { return a.bizId.localeCompare(b.bizId); });
+        if (memberSelect) {
+          memberNodes.forEach(function (m) {
+            const opt = document.createElement("option");
+            opt.value = m.id;
+            opt.textContent = m.name + " (" + m.bizId + ")";
+            memberSelect.appendChild(opt);
+          });
+        }
+
+        // 4. Explorer State
+        const state = {
+          activeCategories: new Set(CATEGORY_ORDER),
+          preset: "all",
+          activityMode: "shared",
+          selectedNodeId: "0", // Default open 최예나 so Inspector shows rich live content immediately
+          highlightedMemberId: "",
+          searchQuery: "",
+          showEdgeLabels: true,
+          transform: { x: 0, y: 0, scale: 1 }
+        };
+
+        // 5. Build Category Toggle Buttons
+        const categoryFilterGroup = document.getElementById("categoryFilterGroup");
+        if (categoryFilterGroup) {
+          CATEGORY_ORDER.forEach(function (cat) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "filter-btn is-active";
+            btn.setAttribute("data-category", cat);
+            btn.innerHTML =
+              '<span style="width:9px;height:9px;border-radius:2px;display:inline-block;background:' +
+              CATEGORY_META[cat].fill + ';border:1px solid ' +
+              (cat === "인물" ? "#6D4449" : CATEGORY_META[cat].stroke) + ';"></span>' +
+              "<span>" + escapeHtml(cat) + " (" + (labelCounts[cat] || 0) + ")</span>";
+
+            btn.addEventListener("click", function () {
+              if (state.activeCategories.has(cat)) {
+                if (state.activeCategories.size > 1) state.activeCategories.delete(cat);
+              } else {
+                state.activeCategories.add(cat);
+              }
+              state.preset = "custom";
+              syncControlsUI();
+              applyFilterAndLayout(true);
+            });
+            categoryFilterGroup.appendChild(btn);
+          });
+        }
+
+        // 6. Preset Buttons & Subbar
+        const PRESET_DESCS = {
+          all: "전체 42개 개체와 48개 관계를 한눈에 탐색합니다.",
+          career: "Q1. 아이즈원 멤버들의 소속사 이동 및 재데뷔·기존 활동 그룹(IVE, LE SSERAFIM, SAY MY NAME, HKT48, AKB48)과 그룹 관리 기획사 경로를 보여줍니다.",
+          units: "Q3. 프로듀스48 경연 당시 멤버들이 함께 참여한 유닛('너무너무너무 1조·2조' 등) 연결망을 집중 탐색합니다.",
+          activities: "Q2. 해체 이후 멤버들이 출연한 예능·화보·라디오 활동의 교차 접점(공동 출연 2인 이상 vs 전체 활동)을 비교합니다."
+        };
+
+        document.querySelectorAll("[data-preset]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const preset = btn.getAttribute("data-preset");
+            applyPreset(preset);
+          });
+        });
+
+        document.querySelectorAll("[data-activity-mode]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            state.activityMode = btn.getAttribute("data-activity-mode");
+            syncControlsUI();
+            applyFilterAndLayout(true);
+          });
+        });
+
+        function applyPreset(preset) {
+          state.preset = preset;
+          if (preset === "all") {
+            state.activeCategories = new Set(CATEGORY_ORDER);
+          } else if (preset === "career") {
+            state.activeCategories = new Set(["인물", "소속사", "아이돌그룹"]);
+          } else if (preset === "units") {
+            state.activeCategories = new Set(["인물", "유닛"]);
+          } else if (preset === "activities") {
+            state.activeCategories = new Set(["인물", "해체후활동"]);
+          }
+          syncControlsUI();
+          applyFilterAndLayout(true);
+        }
+
+        window.__resetGraphPreset = function () {
+          state.highlightedMemberId = "";
+          if (memberSelect) memberSelect.value = "";
+          applyPreset("all");
+        };
+
+        function syncControlsUI() {
+          document.querySelectorAll("[data-category]").forEach(function (btn) {
+            const cat = btn.getAttribute("data-category");
+            btn.classList.toggle("is-active", state.activeCategories.has(cat));
+          });
+          document.querySelectorAll("[data-preset]").forEach(function (btn) {
+            btn.classList.toggle("is-active", btn.getAttribute("data-preset") === state.preset);
+          });
+          document.querySelectorAll("[data-activity-mode]").forEach(function (btn) {
+            btn.classList.toggle("is-active", btn.getAttribute("data-activity-mode") === state.activityMode);
+          });
+
+          const subbar = document.getElementById("presetSubbar");
+          const desc = document.getElementById("presetDescription");
+          const actGroup = document.getElementById("activityModeGroup");
+          if (subbar && desc && actGroup) {
+            if (state.preset !== "custom" && PRESET_DESCS[state.preset]) {
+              subbar.classList.add("is-visible");
+              desc.textContent = PRESET_DESCS[state.preset];
+              actGroup.style.display = state.preset === "activities" ? "flex" : "none";
+            } else {
+              subbar.classList.remove("is-visible");
+            }
+          }
+        }
+
+        // 7. Compute Visible Subgraph
+        function getVisibleGraph() {
+          const visibleNodeSet = new Set();
+          nodes.forEach(function (n) {
+            if (!state.activeCategories.has(n.label)) return;
+            if (state.preset === "activities" && state.activityMode === "shared" && n.label === "해체후활동") {
+              if (n.personDegree < 2) return;
+            }
+            visibleNodeSet.add(n.id);
+          });
+
+          // If in preset mode, optionally keep only connected participants for cleaner reading in units/activities
+          let visibleEdges = edges.filter(function (e) {
+            return visibleNodeSet.has(e.sourceId) && visibleNodeSet.has(e.targetId);
+          });
+
+          if (state.preset === "activities" || state.preset === "units") {
+            const connectedIds = new Set();
+            visibleEdges.forEach(function (e) {
+              connectedIds.add(e.sourceId);
+              connectedIds.add(e.targetId);
+            });
+            nodes.forEach(function (n) {
+              if (n.label === "인물" && !connectedIds.has(n.id)) {
+                visibleNodeSet.delete(n.id);
+              }
+            });
+            visibleEdges = edges.filter(function (e) {
+              return visibleNodeSet.has(e.sourceId) && visibleNodeSet.has(e.targetId);
+            });
+          }
+
+          const visibleNodes = nodes.filter(function (n) { return visibleNodeSet.has(n.id); });
+          return { visibleNodes: visibleNodes, visibleEdges: visibleEdges, visibleNodeSet: visibleNodeSet };
+        }
+
+        // 8. Seed Clean Initial Positions + Force Simulation
+        const WIDTH = 880;
+        const HEIGHT = 600;
+        const CENTER_X = WIDTH / 2;
+        const CENTER_Y = HEIGHT / 2;
+
+        function seedPositions(visibleNodes) {
+          // Group by label onto gentle concentric rings for immediate semantic legibility
+          const byLabel = {};
+          CATEGORY_ORDER.forEach(function (c) { byLabel[c] = []; });
+          visibleNodes.forEach(function (n) {
+            (byLabel[n.label] = byLabel[n.label] || []).push(n);
+          });
+
+          const ringRadii = {
+            "인물": 125,
+            "유닛": 215,
+            "아이돌그룹": 225,
+            "해체후활동": 230,
+            "소속사": 265
+          };
+
+          Object.keys(byLabel).forEach(function (label, groupIdx) {
+            const list = byLabel[label];
+            const radius = ringRadii[label] || 200;
+            const angleOffset = groupIdx * 0.52;
+            list.forEach(function (n, idx) {
+              const angle = angleOffset + (idx / Math.max(1, list.length)) * Math.PI * 2;
+              n.x = CENTER_X + Math.cos(angle) * radius;
+              n.y = CENTER_Y + Math.sin(angle) * radius * 0.82;
+              n.vx = 0;
+              n.vy = 0;
+            });
+          });
+        }
+
+        let currentVisible = getVisibleGraph();
+        seedPositions(currentVisible.visibleNodes);
+
+        const svgEl = document.getElementById("graphSvg");
+        const viewportEl = document.getElementById("graphViewport");
+        const edgesLayer = document.getElementById("edgesLayer");
+        const edgeLabelsLayer = document.getElementById("edgeLabelsLayer");
+        const nodesLayer = document.getElementById("nodesLayer");
+
+        let edgeDomMap = new Map();
+        let nodeDomMap = new Map();
+        let simEnergy = 0;
+        let rafId = null;
+        let draggedNode = null;
+
+        function buildSvgElements() {
+          edgesLayer.innerHTML = "";
+          edgeLabelsLayer.innerHTML = "";
+          nodesLayer.innerHTML = "";
+          edgeDomMap.clear();
+          nodeDomMap.clear();
+
+          // Render edges
+          currentVisible.visibleEdges.forEach(function (edge) {
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("class", "edge-path");
+            path.setAttribute("marker-end", "url(#arrowDefault)");
+            edgesLayer.appendChild(path);
+
+            const labelGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            labelGroup.setAttribute("class", "edge-label-group");
+            const bg = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            bg.setAttribute("class", "edge-label-bg");
+            bg.setAttribute("rx", "3");
+            const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            txt.setAttribute("class", "edge-label-text");
+            txt.textContent = edge.label;
+            labelGroup.appendChild(bg);
+            labelGroup.appendChild(txt);
+            edgeLabelsLayer.appendChild(labelGroup);
+
+            edgeDomMap.set(edge.id, { path: path, labelGroup: labelGroup, bg: bg, txt: txt });
+          });
+
+          // Render nodes
+          currentVisible.visibleNodes.forEach(function (node) {
+            const meta = CATEGORY_META[node.label] || CATEGORY_META["인물"];
+            const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            g.setAttribute("class", "graph-node");
+            g.setAttribute("tabindex", "0");
+            g.setAttribute("role", "button");
+            g.setAttribute("aria-label", node.label + " " + node.name);
+
+            // Selection ring
+            const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            ring.setAttribute("class", "graph-node-ring");
+            ring.setAttribute("r", String(meta.radius + 7));
+            g.appendChild(ring);
+
+            // Distinct shape per label
+            let shape;
+            if (node.label === "인물") {
+              shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+              shape.setAttribute("r", String(meta.radius));
+              shape.setAttribute("fill", meta.fill);
+              shape.setAttribute("stroke", "#FFF9F5");
+              shape.setAttribute("stroke-width", "2.2");
+            } else if (node.label === "소속사") {
+              shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+              shape.setAttribute("x", "-21");
+              shape.setAttribute("y", "-16");
+              shape.setAttribute("width", "42");
+              shape.setAttribute("height", "32");
+              shape.setAttribute("rx", "7");
+              shape.setAttribute("fill", meta.fill);
+              shape.setAttribute("stroke", meta.stroke);
+              shape.setAttribute("stroke-width", "1.6");
+            } else if (node.label === "아이돌그룹") {
+              shape = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+              shape.setAttribute("points", "0,-24 23,-7 14,20 -14,20 -23,-7");
+              shape.setAttribute("fill", meta.fill);
+              shape.setAttribute("stroke", meta.stroke);
+              shape.setAttribute("stroke-width", "1.6");
+            } else if (node.label === "유닛") {
+              shape = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+              shape.setAttribute("points", "0,-23 24,0 0,23 -24,0");
+              shape.setAttribute("fill", meta.fill);
+              shape.setAttribute("stroke", meta.stroke);
+              shape.setAttribute("stroke-width", "1.6");
+            } else {
+              shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+              shape.setAttribute("x", "-23");
+              shape.setAttribute("y", "-15");
+              shape.setAttribute("width", "46");
+              shape.setAttribute("height", "30");
+              shape.setAttribute("rx", "15");
+              shape.setAttribute("fill", meta.fill);
+              shape.setAttribute("stroke", meta.stroke);
+              shape.setAttribute("stroke-width", "1.8");
+            }
+            g.appendChild(shape);
+
+            // Node label
+            const labelEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            if (node.label === "인물") {
+              labelEl.setAttribute("class", "graph-node-label graph-node-label--person");
+              labelEl.setAttribute("y", "3.5");
+              labelEl.textContent = node.name.length > 5 ? node.name.split(" ").slice(-1)[0] : node.name;
+            } else {
+              labelEl.setAttribute("class", "graph-node-label");
+              labelEl.setAttribute("y", String(meta.radius + 13));
+              labelEl.textContent = node.name;
+            }
+            g.appendChild(labelEl);
+
+            // Full subtitle inside 인물 tooltip or outside for long Japanese names
+            if (node.label === "인물" && node.name.length > 5) {
+              const subEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+              subEl.setAttribute("class", "graph-node-label");
+              subEl.setAttribute("y", String(meta.radius + 13));
+              subEl.textContent = node.name;
+              g.appendChild(subEl);
+            }
+
+            // Pointer drag & click interaction
+            g.addEventListener("pointerdown", function (ev) {
+              ev.stopPropagation();
+              draggedNode = {
+                node: node,
+                startX: ev.clientX,
+                startY: ev.clientY,
+                moved: false
+              };
+              try { g.setPointerCapture(ev.pointerId); } catch (e) {}
+            });
+
+            g.addEventListener("pointermove", function (ev) {
+              if (!draggedNode || draggedNode.node.id !== node.id) return;
+              const dx = (ev.clientX - draggedNode.startX) / state.transform.scale;
+              const dy = (ev.clientY - draggedNode.startY) / state.transform.scale;
+              if (Math.hypot(dx, dy) > 3) draggedNode.moved = true;
+              const pt = clientToGraph(ev.clientX, ev.clientY);
+              node.x = pt.x;
+              node.y = pt.y;
+              node.vx = 0;
+              node.vy = 0;
+              simEnergy = Math.max(simEnergy, 0.28);
+              updateSvgPositions();
+              startSimulationLoop();
+            });
+
+            g.addEventListener("pointerup", function (ev) {
+              if (!draggedNode || draggedNode.node.id !== node.id) return;
+              const wasClick = !draggedNode.moved;
+              draggedNode = null;
+              if (wasClick) {
+                selectNode(node.id);
+              }
+            });
+
+            g.addEventListener("keydown", function (ev) {
+              if (ev.key === "Enter" || ev.key === " ") {
+                ev.preventDefault();
+                selectNode(node.id);
+              }
+            });
+
+            nodesLayer.appendChild(g);
+            nodeDomMap.set(node.id, g);
+          });
+
+          const countEl = document.getElementById("visibleCountIndicator");
+          if (countEl) {
+            countEl.textContent =
+              "표시 중: 노드 " + currentVisible.visibleNodes.length + " · 관계 " + currentVisible.visibleEdges.length;
+          }
+
+          edgeLabelsLayer.style.display = state.showEdgeLabels ? "block" : "none";
+          applyHighlightStyles();
+        }
+
+        function stepPhysics() {
+          const vNodes = currentVisible.visibleNodes;
+          const vEdges = currentVisible.visibleEdges;
+          const nLen = vNodes.length;
+          const repulsion = vNodes.length <= 20 ? 5200 : 4200;
+          const idealEdgeLen = vNodes.length <= 20 ? 145 : 122;
+
+          // Repulsion
+          for (let i = 0; i < nLen; i++) {
+            const a = vNodes[i];
+            for (let j = i + 1; j < nLen; j++) {
+              const b = vNodes[j];
+              let dx = a.x - b.x;
+              let dy = a.y - b.y;
+              let distSq = dx * dx + dy * dy;
+              if (distSq < 1) {
+                dx = (Math.random() - 0.5) * 2;
+                dy = (Math.random() - 0.5) * 2;
+                distSq = 4;
+              }
+              const dist = Math.sqrt(distSq);
+              const force = (repulsion / distSq) * simEnergy;
+              const fx = (dx / dist) * force;
+              const fy = (dy / dist) * force;
+              a.vx += fx;
+              a.vy += fy;
+              b.vx -= fx;
+              b.vy -= fy;
+            }
+          }
+
+          // Edge springs
+          for (let k = 0; k < vEdges.length; k++) {
+            const e = vEdges[k];
+            const s = e.source;
+            const t = e.target;
+            if (!s || !t) continue;
+            const dx = t.x - s.x;
+            const dy = t.y - s.y;
+            const dist = Math.max(1, Math.sqrt(dx * dx + dy * dy));
+            const stretch = dist - idealEdgeLen;
+            const force = stretch * 0.055 * simEnergy;
+            const fx = (dx / dist) * force;
+            const fy = (dy / dist) * force;
+            s.vx += fx;
+            s.vy += fy;
+            t.vx -= fx;
+            t.vy -= fy;
+          }
+
+          // Gentle gravity toward center
+          for (let i = 0; i < nLen; i++) {
+            const n = vNodes[i];
+            if (draggedNode && draggedNode.node.id === n.id) continue;
+            n.vx += (CENTER_X - n.x) * 0.015 * simEnergy;
+            n.vy += (CENTER_Y - n.y) * 0.018 * simEnergy;
+            n.vx *= 0.80;
+            n.vy *= 0.80;
+            n.x += Math.max(-14, Math.min(14, n.vx));
+            n.y += Math.max(-14, Math.min(14, n.vy));
+            n.x = Math.max(54, Math.min(WIDTH - 54, n.x));
+            n.y = Math.max(54, Math.min(HEIGHT - 54, n.y));
+          }
+
+          simEnergy *= 0.965;
+        }
+
+        function updateSvgPositions() {
+          currentVisible.visibleEdges.forEach(function (edge) {
+            const dom = edgeDomMap.get(edge.id);
+            if (!dom || !edge.source || !edge.target) return;
+            const sx = edge.source.x;
+            const sy = edge.source.y;
+            const tx = edge.target.x;
+            const ty = edge.target.y;
+
+            const dx = tx - sx;
+            const dy = ty - sy;
+            const dist = Math.max(1, Math.sqrt(dx * dx + dy * dy));
+            const targetRadius = (CATEGORY_META[edge.target.label] || CATEGORY_META["인물"]).radius + 5;
+            const endX = tx - (dx / dist) * targetRadius;
+            const endY = ty - (dy / dist) * targetRadius;
+
+            const midX = (sx + endX) / 2;
+            const midY = (sy + endY) / 2;
+            const nx = -dy / dist;
+            const ny = dx / dist;
+            const ctrlX = midX + nx * edge.curveOffset;
+            const ctrlY = midY + ny * edge.curveOffset;
+
+            if (edge.curveOffset === 0) {
+              dom.path.setAttribute("d", "M" + sx.toFixed(1) + "," + sy.toFixed(1) + " L" + endX.toFixed(1) + "," + endY.toFixed(1));
+              dom.txt.setAttribute("x", midX.toFixed(1));
+              dom.txt.setAttribute("y", midY.toFixed(1));
+            } else {
+              dom.path.setAttribute("d", "M" + sx.toFixed(1) + "," + sy.toFixed(1) + " Q" + ctrlX.toFixed(1) + "," + ctrlY.toFixed(1) + " " + endX.toFixed(1) + "," + endY.toFixed(1));
+              const lx = 0.25 * sx + 0.5 * ctrlX + 0.25 * endX;
+              const ly = 0.25 * sy + 0.5 * ctrlY + 0.25 * endY;
+              dom.txt.setAttribute("x", lx.toFixed(1));
+              dom.txt.setAttribute("y", ly.toFixed(1));
+            }
+
+            const labelX = parseFloat(dom.txt.getAttribute("x"));
+            const labelY = parseFloat(dom.txt.getAttribute("y"));
+            const approxW = edge.label.length * 9 + 8;
+            dom.bg.setAttribute("x", (labelX - approxW / 2).toFixed(1));
+            dom.bg.setAttribute("y", (labelY - 7).toFixed(1));
+            dom.bg.setAttribute("width", String(approxW));
+            dom.bg.setAttribute("height", "14");
+          });
+
+          currentVisible.visibleNodes.forEach(function (node) {
+            const g = nodeDomMap.get(node.id);
+            if (g) g.setAttribute("transform", "translate(" + node.x.toFixed(1) + "," + node.y.toFixed(1) + ")");
+          });
+        }
+
+        function startSimulationLoop() {
+          if (rafId !== null) return;
+          function tick() {
+            if (simEnergy > 0.015) {
+              stepPhysics();
+              updateSvgPositions();
+              rafId = requestAnimationFrame(tick);
+            } else {
+              rafId = null;
+            }
+          }
+          rafId = requestAnimationFrame(tick);
+        }
+
+        function runImmediateSettle(steps) {
+          simEnergy = 1.0;
+          for (let i = 0; i < steps; i++) {
+            stepPhysics();
+          }
+          updateSvgPositions();
+          simEnergy = 0.25;
+          startSimulationLoop();
+        }
+
+        function applyFilterAndLayout(reseed) {
+          currentVisible = getVisibleGraph();
+          if (reseed) seedPositions(currentVisible.visibleNodes);
+          buildSvgElements();
+          runImmediateSettle(85);
+          if (!currentVisible.visibleNodeSet.has(state.selectedNodeId) && currentVisible.visibleNodes.length > 0) {
+            selectNode(currentVisible.visibleNodes[0].id);
+          } else {
+            renderInspector(state.selectedNodeId);
+          }
+        }
+
+        // 9. Highlighting (Selected Node / Member Focus / Search Match)
+        function applyHighlightStyles() {
+          const focusId = state.highlightedMemberId || state.selectedNodeId;
+          const query = state.searchQuery.trim().toLowerCase();
+          const hasFocus = Boolean(focusId && currentVisible.visibleNodeSet.has(focusId));
+          const neighborIds = new Set();
+
+          if (hasFocus) neighborIds.add(focusId);
+
+          currentVisible.visibleEdges.forEach(function (edge) {
+            const connected = hasFocus && (edge.sourceId === focusId || edge.targetId === focusId);
+            if (connected) {
+              neighborIds.add(edge.sourceId);
+              neighborIds.add(edge.targetId);
+            }
+            const dom = edgeDomMap.get(edge.id);
+            if (!dom) return;
+            dom.path.classList.toggle("is-highlighted", connected);
+            dom.path.classList.toggle("is-dimmed", hasFocus && !connected);
+            dom.path.setAttribute("marker-end", connected ? "url(#arrowActive)" : "url(#arrowDefault)");
+            dom.labelGroup.classList.toggle("is-highlighted", connected);
+            dom.labelGroup.classList.toggle("is-dimmed", hasFocus && !connected);
+          });
+
+          currentVisible.visibleNodes.forEach(function (node) {
+            const g = nodeDomMap.get(node.id);
+            if (!g) return;
+            const matchesSearch = !query ||
+              node.name.toLowerCase().includes(query) ||
+              node.bizId.toLowerCase().includes(query) ||
+              node.id === query;
+            const isSelected = node.id === state.selectedNodeId;
+            const shouldDim = (hasFocus && !neighborIds.has(node.id)) || (query && !matchesSearch);
+            g.classList.toggle("is-selected", isSelected);
+            g.classList.toggle("is-dimmed", Boolean(shouldDim));
+          });
+        }
+
+        function selectNode(nodeId) {
+          state.selectedNodeId = String(nodeId);
+          applyHighlightStyles();
+          renderInspector(state.selectedNodeId);
+        }
+
+        // 10. Inspector Panel Renderer
+        function renderInspector(nodeId) {
+          const catEl = document.getElementById("inspectorCategory");
+          const nameEl = document.getElementById("inspectorName");
+          const bodyEl = document.getElementById("inspectorBody");
+          const node = nodeById.get(String(nodeId));
+
+          if (!node || !bodyEl) return;
+
+          catEl.textContent = node.label + " · NEO4J #" + node.id + (node.bizId ? " · " + node.bizId : "");
+          nameEl.textContent = node.name;
+
+          const propsEntries = Object.entries(node.properties || {});
+          const outgoing = edges.filter(function (e) { return e.sourceId === node.id; });
+          const incoming = edges.filter(function (e) { return e.targetId === node.id; });
+
+          let html =
+            "<div>" +
+              '<h4 class="inspector-section-title">Node Properties</h4>' +
+              '<div class="inspector-meta-grid">' +
+                '<div class="inspector-kv"><span class="inspector-kv-key">Category</span><span class="inspector-kv-val">' + escapeHtml(node.label) + "</span></div>" +
+                '<div class="inspector-kv"><span class="inspector-kv-key">Neo4j ID</span><span class="inspector-kv-val tabular">#' + escapeHtml(node.id) + "</span></div>" +
+                propsEntries.map(function (entry) {
+                  return (
+                    '<div class="inspector-kv">' +
+                      '<span class="inspector-kv-key">' + escapeHtml(entry[0]) + "</span>" +
+                      '<span class="inspector-kv-val">' + escapeHtml(String(entry[1])) + "</span>" +
+                    "</div>"
+                  );
+                }).join("") +
+              "</div>" +
+            "</div>";
+
+          html +=
+            "<div>" +
+              '<h4 class="inspector-section-title">Outgoing Connections (' + outgoing.length + ")</h4>" +
+              (outgoing.length
+                ? '<div class="rel-list">' +
+                    outgoing.map(function (e) {
+                      const target = e.target;
+                      if (!target) return "";
+                      return (
+                        '<button type="button" class="rel-item" data-inspect-id="' + escapeHtml(target.id) + '">' +
+                          '<span class="rel-item-type">→ ' + escapeHtml(e.label) + "</span>" +
+                          '<span class="rel-item-target">' +
+                            "<span>" + escapeHtml(target.name) + "</span>" +
+                            '<span class="rel-item-cat">' + escapeHtml(target.label) + " · " + escapeHtml(target.bizId) + "</span>" +
+                          "</span>" +
+                        "</button>"
+                      );
+                    }).join("") +
+                  "</div>"
+                : '<p style="margin:0;font-size:0.84rem;color:var(--ink-muted);">나가는 관계가 없습니다.</p>') +
+            "</div>";
+
+          html +=
+            "<div>" +
+              '<h4 class="inspector-section-title">Incoming Connections (' + incoming.length + ")</h4>" +
+              (incoming.length
+                ? '<div class="rel-list">' +
+                    incoming.map(function (e) {
+                      const source = e.source;
+                      if (!source) return "";
+                      return (
+                        '<button type="button" class="rel-item" data-inspect-id="' + escapeHtml(source.id) + '">' +
+                          '<span class="rel-item-type">← ' + escapeHtml(e.label) + "</span>" +
+                          '<span class="rel-item-target">' +
+                            "<span>" + escapeHtml(source.name) + "</span>" +
+                            '<span class="rel-item-cat">' + escapeHtml(source.label) + " · " + escapeHtml(source.bizId) + "</span>" +
+                          "</span>" +
+                        "</button>"
+                      );
+                    }).join("") +
+                  "</div>"
+                : '<p style="margin:0;font-size:0.84rem;color:var(--ink-muted);">들어오는 관계가 없습니다.</p>') +
+            "</div>";
+
+          bodyEl.innerHTML = html;
+          bodyEl.querySelectorAll("[data-inspect-id]").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              const targetId = btn.getAttribute("data-inspect-id");
+              const targetNode = nodeById.get(targetId);
+              if (targetNode && !state.activeCategories.has(targetNode.label)) {
+                state.activeCategories.add(targetNode.label);
+                state.preset = "custom";
+                syncControlsUI();
+                applyFilterAndLayout(false);
+              }
+              selectNode(targetId);
+            });
+          });
+        }
+
+        // 11. Pan & Zoom Controls
+        function applyViewportTransform() {
+          const t = state.transform;
+          viewportEl.setAttribute("transform", "translate(" + t.x.toFixed(1) + "," + t.y.toFixed(1) + ") scale(" + t.scale.toFixed(3) + ")");
+        }
+
+        function clientToGraph(clientX, clientY) {
+          const rect = svgEl.getBoundingClientRect();
+          const svgX = ((clientX - rect.left) / rect.width) * WIDTH;
+          const svgY = ((clientY - rect.top) / rect.height) * HEIGHT;
+          return {
+            x: (svgX - state.transform.x) / state.transform.scale,
+            y: (svgY - state.transform.y) / state.transform.scale
+          };
+        }
+
+        function zoomBy(factor) {
+          const nextScale = Math.max(0.45, Math.min(2.8, state.transform.scale * factor));
+          const ratio = nextScale / state.transform.scale;
+          state.transform.x = CENTER_X - (CENTER_X - state.transform.x) * ratio;
+          state.transform.y = CENTER_Y - (CENTER_Y - state.transform.y) * ratio;
+          state.transform.scale = nextScale;
+          applyViewportTransform();
+        }
+
+        let panDrag = null;
+        svgEl.addEventListener("pointerdown", function (ev) {
+          if (draggedNode) return;
+          panDrag = {
+            startX: ev.clientX,
+            startY: ev.clientY,
+            origX: state.transform.x,
+            origY: state.transform.y
+          };
+          svgEl.classList.add("is-panning");
+        });
+
+        window.addEventListener("pointermove", function (ev) {
+          if (!panDrag) return;
+          const rect = svgEl.getBoundingClientRect();
+          const scaleRatioX = WIDTH / Math.max(1, rect.width);
+          const scaleRatioY = HEIGHT / Math.max(1, rect.height);
+          state.transform.x = panDrag.origX + (ev.clientX - panDrag.startX) * scaleRatioX;
+          state.transform.y = panDrag.origY + (ev.clientY - panDrag.startY) * scaleRatioY;
+          applyViewportTransform();
+        });
+
+        window.addEventListener("pointerup", function () {
+          if (panDrag) {
+            panDrag = null;
+            svgEl.classList.remove("is-panning");
+          }
+        });
+
+        svgEl.addEventListener("wheel", function (ev) {
+          ev.preventDefault();
+          zoomBy(ev.deltaY < 0 ? 1.12 : 0.89);
+        }, { passive: false });
+
+        document.getElementById("zoomInBtn").addEventListener("click", function () { zoomBy(1.18); });
+        document.getElementById("zoomOutBtn").addEventListener("click", function () { zoomBy(0.84); });
+        document.getElementById("resetViewBtn").addEventListener("click", function () {
+          state.transform = { x: 0, y: 0, scale: 1 };
+          applyViewportTransform();
+        });
+        document.getElementById("relayoutBtn").addEventListener("click", function () {
+          seedPositions(currentVisible.visibleNodes);
+          runImmediateSettle(95);
+        });
+
+        const toggleEdgeBtn = document.getElementById("toggleEdgeLabelsBtn");
+        toggleEdgeBtn.addEventListener("click", function () {
+          state.showEdgeLabels = !state.showEdgeLabels;
+          edgeLabelsLayer.style.display = state.showEdgeLabels ? "block" : "none";
+          toggleEdgeBtn.classList.toggle("is-active", state.showEdgeLabels);
+          toggleEdgeBtn.setAttribute("aria-pressed", String(state.showEdgeLabels));
+        });
+
+        // 12. Search & Member Highlight Events
+        const searchInput = document.getElementById("graphSearchInput");
+        const searchDropdown = document.getElementById("searchResultsDropdown");
+
+        function updateSearchDropdown() {
+          const q = state.searchQuery.trim().toLowerCase();
+          if (!q) {
+            searchDropdown.classList.remove("is-open");
+            searchDropdown.innerHTML = "";
+            return;
+          }
+          const matches = nodes.filter(function (n) {
+            return n.name.toLowerCase().includes(q) || n.bizId.toLowerCase().includes(q) || n.id === q;
+          }).slice(0, 10);
+
+          if (!matches.length) {
+            searchDropdown.innerHTML = '<div style="padding:10px 12px;font-size:0.82rem;color:var(--ink-muted);">일치하는 노드가 없습니다.</div>';
+          } else {
+            searchDropdown.innerHTML = matches.map(function (n) {
+              return (
+                '<button type="button" class="search-result-item" data-search-id="' + escapeHtml(n.id) + '">' +
+                  "<span><strong>" + escapeHtml(n.name) + "</strong></span>" +
+                  '<span class="rel-item-cat">' + escapeHtml(n.label) + " · " + escapeHtml(n.bizId) + "</span>" +
+                "</button>"
+              );
+            }).join("");
+            searchDropdown.querySelectorAll("[data-search-id]").forEach(function (btn) {
+              btn.addEventListener("click", function () {
+                const id = btn.getAttribute("data-search-id");
+                const target = nodeById.get(id);
+                if (target && !state.activeCategories.has(target.label)) {
+                  state.activeCategories.add(target.label);
+                  state.preset = "custom";
+                  syncControlsUI();
+                  applyFilterAndLayout(false);
+                }
+                searchDropdown.classList.remove("is-open");
+                selectNode(id);
+              });
+            });
+          }
+          searchDropdown.classList.add("is-open");
+        }
+
+        if (searchInput) {
+          searchInput.addEventListener("input", function () {
+            state.searchQuery = searchInput.value;
+            updateSearchDropdown();
+            applyHighlightStyles();
+          });
+          searchInput.addEventListener("focus", function () {
+            if (searchInput.value.trim()) updateSearchDropdown();
+          });
+          document.addEventListener("click", function (ev) {
+            if (!ev.target.closest(".search-box-wrap")) {
+              searchDropdown.classList.remove("is-open");
+            }
+          });
+        }
+
+        if (memberSelect) {
+          memberSelect.addEventListener("change", function () {
+            state.highlightedMemberId = memberSelect.value;
+            if (memberSelect.value) {
+              if (!state.activeCategories.has("인물")) {
+                state.activeCategories.add("인물");
+                syncControlsUI();
+                applyFilterAndLayout(false);
+              }
+              selectNode(memberSelect.value);
+            } else {
+              applyHighlightStyles();
+            }
+          });
+        }
+
+        // Initial Render
+        syncControlsUI();
+        buildSvgElements();
+        runImmediateSettle(110);
+        selectNode(state.selectedNodeId);
+      }
+
+      /* =======================================================================
+         SECTION F — NAVIGATION SCROLLSPY & MOBILE MENU
+         ======================================================================= */
+      function initNavigation() {
+        const navLinks = document.querySelectorAll("[data-nav]");
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const mobileDrawer = document.getElementById("mobileDrawer");
+
+        function setActiveNav(sectionId) {
+          navLinks.forEach(function (link) {
+            link.classList.toggle("is-active", link.getAttribute("data-nav") === sectionId);
+          });
+        }
+
+        if (mobileBtn && mobileDrawer) {
+          mobileBtn.addEventListener("click", function () {
+            const isOpen = mobileDrawer.classList.toggle("is-open");
+            mobileBtn.setAttribute("aria-expanded", String(isOpen));
+          });
+          mobileDrawer.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+              mobileDrawer.classList.remove("is-open");
+              mobileBtn.setAttribute("aria-expanded", "false");
+            });
+          });
+        }
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                setActiveNav(entry.target.id);
+              }
+            });
+          }, {
+            rootMargin: "-30% 0px -55% 0px",
+            threshold: 0.01
+          });
+          ["about", "projects", "explorer"].forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+          });
+        }
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      /* =======================================================================
+         BOOT APPLICATION
+         ======================================================================= */
+      document.addEventListener("DOMContentLoaded", function () {
+        renderProfileSection();
+        renderProjectsSection();
+        initDataExplorer();
+        initNavigation();
+      });
+    })();
+  </script>
+</body>
+</html>
